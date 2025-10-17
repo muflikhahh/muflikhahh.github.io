@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Muflikhah - Portofolio Web Developer Magang</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  /* RESET & FONT */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(ellipse at center, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    color: #f0f8ff;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    min-height: 100vh;
+  }
+
+  /* CONTAINER SECTION */
+  .section {
+    padding: 80px 5%;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5em;
+    color: #00ffe7; /* neon cyan */
+    text-shadow: 0 0 10px #00ffe7, 0 0 20px #00ffe7;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    margin-top: -30px;
+    margin-bottom: 40px;
+    color: #b3ffff;
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #00ffe7, transparent);
+    margin: 50px auto;
+    width: 80%;
+  }
+
+  /* HEADER & NAVIGATION */
+  .header {
+    background: #081f3f;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 0 20px #00ffe7aa;
+    text-align: center;
+    backdrop-filter: saturate(180%) blur(10px);
+  }
+
+  .header nav a {
+    color: #b3ffff;
+    text-decoration: none;
+    margin: 0 18px;
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 10px 16px;
+    border-radius: 8px;
+    transition: 0.3s ease;
+    letter-spacing: 0.03em;
+  }
+
+  .header nav a:hover,
+  .header nav a:focus {
+    color: #00ffe7;
+    background: rgba(0, 255, 231, 0.2);
+    box-shadow: 0 0 15px #00ffe7;
+    outline: none;
+  }
+
+  /* PROFILE SECTION */
+  .profile-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    text-align: center;
+    position: relative;
+  }
+
+  .profile-card {
+    background: rgba(0, 0, 0, 0.55);
+    padding: 45px 40px 60px;
+    border-radius: 20px;
+    box-shadow:
+      0 0 10px #00ffe7,
+      0 0 40px #00ffe7,
+      inset 0 0 15px #00ffe7;
+    max-width: 700px;
+    transition: transform 0.5s ease;
+  }
+  .profile-card:hover {
+    transform: scale(1.03);
+    box-shadow:
+      0 0 20px #00ffe7,
+      0 0 70px #00ffe7,
+      inset 0 0 30px #00ffe7;
+  }
+
+  .profile-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid #00ffe7;
+    margin-bottom: 25px;
+    box-shadow: 0 0 20px #00ffe7;
+    transition: transform 0.4s ease;
+  }
+
+  .profile-photo:hover {
+    transform: rotate(15deg) scale(1.1);
+    box-shadow: 0 0 40px #00ffe7, 0 0 60px #00ffe7;
+  }
+
+  h1 {
+    font-weight: 700;
+    font-size: 2.6em;
+    margin-bottom: 10px;
+    text-shadow: 0 0 6px #00ffe7;
+  }
+
+  .tagline {
+    font-weight: 600;
+    color: #a0fff0;
+    font-size: 1.3em;
+    margin-bottom: 25px;
+    text-shadow: 0 0 8px #00ffe7aa;
+  }
+
+  .profile-card p {
+    font-size: 1.1em;
+    color: #d0faff;
+    line-height: 1.5;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: linear-gradient(45deg, #00ffe7, #00c6ff);
+    color: #001e27;
+    padding: 14px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    margin: 30px 0 15px;
+    box-shadow: 0 0 15px #00ffe7;
+    transition: background 0.4s ease, transform 0.3s ease;
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background: linear-gradient(45deg, #00c6ff, #00ffe7);
+    transform: translateY(-4px);
+    box-shadow: 0 0 25px #00c6ff;
+    outline: none;
+  }
+
+  .contact-links {
+    margin-top: 15px;
+  }
+
+  .contact-links a {
+    color: #a0fff0;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 0 15px;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+  }
+
+  .contact-links a:hover,
+  .contact-links a:focus {
+    color: #00ffe7;
+    text-shadow: 0 0 10px #00ffe7;
+    outline: none;
+  }
+
+  /* TIMELINE SECTION */
+  .timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background: #00ffe7;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+    box-shadow: 0 0 20px #00ffe7;
+  }
+
+  .timeline-item {
+    padding: 25px 40px;
+    position: relative;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    box-shadow: 0 0 15px #00ffe7aa;
+    margin-bottom: 50px;
+    width: 45%;
+    color: #a0fff0;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: default;
+  }
+
+  .timeline-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 25px #00ffe7ff;
+  }
+
+  .timeline-item h3 {
+    color: #00ffe7;
+    margin-top: 0;
+    font-weight: 700;
+  }
+
+  .timeline-item p {
+    font-weight: 500;
+    font-size: 1.1em;
+  }
+
+  .timeline-item:nth-child(odd) {
+    left: 0;
+  }
+
+  .timeline-item:nth-child(even) {
+    left: 55%;
+  }
+
+  .timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -34px;
+    background: #00ffe7;
+    box-shadow: 0 0 20px #00ffe7;
+    top: 28px;
+    border-radius: 50%;
+    border: 4px solid #0f2027;
+    z-index: 1;
+    transition: background-color 0.3s ease;
+  }
+
+  .timeline-item:nth-child(even)::after {
+    left: -34px;
+    right: auto;
+  }
+
+  /* PORTFOLIO GRID */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+  }
+
+  .portfolio-item {
+    background: rgba(0, 0, 0, 0.45);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 15px #00ffe7aa;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    color: #e0f7fa;
+  }
+
+  .portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 40px #00ffe7ff;
+  }
+
+  .project-screenshot {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.4s ease;
+  }
+
+  .project-details {
+    padding: 25px 25px 35px;
+  }
+
+  .project-details h3 {
+    margin-top: 0;
+    color: #00ffe7;
+    font-size: 1.6em;
+    text-shadow: 0 0 10px #00ffe7aa;
+  }
+
+  .project-details p {
+    font-size: 1em;
+    line-height: 1.4;
+    color: #b3ffff;
+  }
+
+  .tech-stack {
+    margin-top: 18px;
+  }
+
+  .tech-stack span {
+    display: inline-block;
+    background: linear-gradient(45deg, #00ffe7, #00c6ff);
+    color: #001e27;
+    padding: 7px 16px;
+    border-radius: 30px;
+    font-size: 0.9em;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    box-shadow: 0 0 10px #00ffe7;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 25px 15px;
+    background: #081f3f;
+    color: #a0f0f9;
+    font-size: 1em;
+    box-shadow: 0 0 20px #00ffe7aa inset;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .section {
+      padding: 60px 5%;
+    }
+    .timeline::after {
+      left: 20px;
+    }
+    .timeline-item {
+      width: 100%;
+      padding-left: 60px;
+      padding-right: 25px;
+      left: 0 !important;
+    }
+    .timeline-item::after,
+    .timeline-item:nth-child(even)::after {
+      left: 12px !important;
+      right: auto !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <nav>
+    <a href="#profile" class="nav-link">Profil</a>
+    <a href="#pendidikan" class="nav-link">Pendidikan</a>
+    <a href="#portofolio" class="nav-link">Portofolio</a>
+  </nav>
+</header>
+
+<main>
+  <section id="profile" class="section profile-section">
+    <div class="profile-card" tabindex="0">
+      <img src="Muflikhah.png" alt="Foto Profil Muflikhah" class="profile-photo" />
+      <h1>Halo, Saya Muflikhah 👋</h1>
+      <p class="tagline">Junior Programming</p>
+      <p>
+        Saya Muflikhah siswa kelas XI SMK Informatika Utama dengan jurusan Pengembangan Perangkat Lunak dan Gim (PPLG). Terampil dalam pengembangan aplikasi web menggunakan PHP, CSS, HTML, NETBEANS, dan MYSQL. Memiliki pengalaman dalam membuat web statis yaitu proyek toko online, serta pengoperasian Microsoft Office. Memiliki karakter yang proaktif dan adaptif. Serta siap memberikan kontribusi positif dalam tim, saya memiliki minat Praktik Kerja Lapangan (PKL) sebagai programmer.
+      </p>
+      <a href="#portofolio" class="btn-primary">Lihat Karya Saya <i class="fas fa-arrow-down"></i></a>
+      <div class="contact-links" aria-label="Kontak saya">
+        <a href="mailto:muflikhah2304@email.com" aria-label="Email"><i class="fas fa-envelope"></i> Email</a> |
+        <a href="https://github.com/muflikhahh" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i> GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <section id="pendidikan" class="section" aria-label="Riwayat Pendidikan">
+    <h2>🎓 Riwayat Pendidikan</h2>
+    <div class="timeline">
+      <div class="timeline-item" tabindex="0">
+        <h3>MTSN 1 Lampung Selatan</h3>
+        <p>2020 – 2023</p>
+      </div>
+      <div class="timeline-item" tabindex="0">
+        <h3>SMK Informatika Utama</h3>
+        <p>2024 – Sekarang</p>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <section id="portofolio" class="section" aria-label="Portofolio Proyek Web">
+    <h2>💻 Portofolio Proyek Web</h2>
+    <p class="section-subtitle">Studi kasus dan aplikasi yang dikembangkan secara mandiri.</p>
+    <div class="portfolio-grid" id="portfolio-items" aria-live="polite" aria-atomic="true">
+      <!-- Portfolio items will be added here dynamically -->
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Dibuat dengan ❤️ oleh Muflikhah | &copy; 2025</p>
+</footer>
+
+<!-- FontAwesome CDN for icons -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" defer></script>
+
+<script>
+  // Data Portofolio
+  const portfolioData = [
+    {
+      id: 1,
+      name: "Online Shop Statis Website",
+      description: "Di kelas 10, saya pernah membuat website statis toko online sebagai proyek tugas sekolah menggunakan HTML dan CSS.",
+      techStack: ["HTML", "CSS"],
+      screenshot: "mizanstore.png"
+    },
+    {
+      id: 2,
+      name: "Desain Flyer",
+      description: "Saya pernah membuat desain flyer sendiri menggunakan Canva sebagai tugas sekolah.",
+      techStack: ["CANVA (Desain)"],
+      screenshot: "FLYER-LOMBA-VIDEO-FIX-pdf.jpg"
+    }
+  ];
+
+  // Membuat elemen portofolio secara dinamis
+  function createPortfolioItem(item) {
+    const itemDiv = document.createElement('div');
+    itemDiv.classList.add('portfolio-item');
+    itemDiv.setAttribute('tabindex', '0');
+    itemDiv.setAttribute('role', 'button');
+    itemDiv.setAttribute('aria-pressed', 'false');
+    itemDiv.setAttribute('aria-label', `Detail proyek ${item.name}`);
+
+    // Menampilkan detail proyek saat klik atau tekan enter/space
+    function showDetails() {
+      alert(
+        `DETAIL PROYEK: ${item.name}\n\n` +
+        `Deskripsi: ${item.description}\n\n` +
+        `Tech Stack Utama: ${item.techStack.join(', ')}\n\n` +
+        `*Ini menunjukkan penguasaan kerangka kerja modern dan desain responsif.*`
+      );
+    }
+
+    itemDiv.onclick = showDetails;
+    itemDiv.onkeydown = function(e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        showDetails();
+      }
+    };
+
+    const techStackHtml = item.techStack.map(tech => `<span>${tech}</span>`).join('');
+
+    itemDiv.innerHTML = `
+      <img src="${item.screenshot}" alt="Screenshot Proyek ${item.name}" class="project-screenshot" loading="lazy" />
+      <div class="project-details">
+        <h3>${item.name}</h3>
+        <p>${item.description}</p>
+        <div class="tech-stack">${techStackHtml}</div>
+      </div>
+    `;
+
+    return itemDiv;
+  }
+
+  // Inisialisasi portofolio dan smooth scroll
+  document.addEventListener('DOMContentLoaded', () => {
+    const portfolioGrid = document.getElementById('portfolio-items');
+
+    portfolioData.forEach(item => {
+      portfolioGrid.appendChild(createPortfolioItem(item));
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        document.querySelector(targetId).scrollIntoView({
+          behavior: 'smooth'
+        });
+        this.blur();
+      });
+    });
+  });
+</script>
+</body>
+</html>
