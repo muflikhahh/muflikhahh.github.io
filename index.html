@@ -9,7 +9,416 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <!-- Font Awesome (ikon) -->
-  <script src="https://kit.fontawesome.com/your_kit_id.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/your_kit_id.js" crossorigin="anonymous"></script><!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio - [Nama Kamu]</title>
+
+  <!-- Font & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --primary: #007BFF;
+      --gradient: linear-gradient(135deg, #007BFF, #00C6FF);
+      --bg: #f7f9fb;
+      --text: #1a1a1a;
+      --muted: #6c757d;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: var(--bg);
+      margin: 0;
+      color: var(--text);
+    }
+
+    /* Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      transition: all 0.3s ease;
+    }
+
+    header h1 {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    nav a {
+      margin-left: 1.2rem;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    /* Hero */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4rem 2rem;
+      background: var(--gradient);
+      color: white;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .hero-text {
+      max-width: 550px;
+    }
+
+    .hero-text h2 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-text p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      background: white;
+      color: var(--primary);
+      padding: 0.7rem 1.4rem;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #e2e6ea;
+      transform: scale(1.05);
+    }
+
+    .hero-img {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      backdrop-filter: blur(8px);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Sections */
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section h3 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+
+    section p, li {
+      color: var(--muted);
+    }
+
+    /* Skills */
+    .skills {
+      display: grid;
+      gap: 1rem;
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+
+    .skill {
+      background: white;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .skill .bar {
+      height: 8px;
+      background: var(--gradient);
+      width: 0%;
+      border-radius: 8px;
+      transition: width 1s ease-in-out;
+    }
+
+    /* Projects */
+    .projects {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .project {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-8px);
+    }
+
+    .project img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 1rem;
+    }
+
+    .project-content h4 {
+      margin: 0;
+      color: var(--primary);
+    }
+
+    .project-content p {
+      font-size: 0.9rem;
+    }
+
+    /* Certificates */
+    .certificates {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .cert {
+      background: white;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    /* Contact */
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      margin: 0.3rem 0;
+    }
+
+    .socials a {
+      color: var(--primary);
+      margin: 0 0.5rem;
+      font-size: 1.5rem;
+      transition: transform 0.3s;
+    }
+
+    .socials a:hover {
+      transform: scale(1.2);
+      color: #00C6FF;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: white;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @keyframes fadeIn {
+      from {opacity:0; transform:translateY(20px);}
+      to {opacity:1; transform:translateY(0);}
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .hero-img {margin-bottom: 1.5rem;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <h1><!-- EDIT -->Portofolio [Nama Kamu]</h1>
+    <nav>
+      <a href="#about">Tentang</a>
+      <a href="#visi">Visi</a>
+      <a href="#edu">Pendidikan</a>
+      <a href="#skills">Keahlian</a>
+      <a href="#projects">Proyek</a>
+      <a href="#cert">Sertifikat</a>
+      <a href="#contact">Kontak</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="about">
+    <div class="hero-text">
+      <h2>Halo, Saya [Nama Kamu]</h2>
+      <p><!-- EDIT -->Saya seorang pengembang IT yang berfokus pada pembuatan aplikasi web modern dan interaktif. Saya suka belajar teknologi baru dan mengerjakan proyek keren!</p>
+      <a href="#contact" class="btn">Hubungi Saya</a>
+    </div>
+    <div class="hero-img"><i class="fa-solid fa-code"></i></div>
+  </section>
+
+  <!-- VISI MISI -->
+  <section id="visi">
+    <h3>Visi & Misi</h3>
+    <p><strong>Visi:</strong> Menjadi developer yang berkontribusi menciptakan solusi digital bermanfaat.</p>
+    <ul>
+      <li>Meningkatkan kemampuan teknologi setiap hari.</li>
+      <li>Membangun proyek open-source yang membantu banyak orang.</li>
+      <li>Berkarier di dunia software development profesional.</li>
+    </ul>
+  </section>
+
+  <!-- PENDIDIKAN -->
+  <section id="edu">
+    <h3>Latar Belakang Pendidikan</h3>
+    <p><strong><!-- EDIT -->Universitas XYZ</strong> — Teknik Informatika (2019–2023)</p>
+    <p>Fokus pada pengembangan web, keamanan siber, dan cloud computing.</p>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h3>Keahlian</h3>
+    <div class="skills">
+      <div class="skill"><strong>HTML</strong><div class="bar" data-skill="95"></div></div>
+      <div class="skill"><strong>CSS</strong><div class="bar" data-skill="90"></div></div>
+      <div class="skill"><strong>JavaScript</strong><div class="bar" data-skill="85"></div></div>
+      <div class="skill"><strong>React</strong><div class="bar" data-skill="80"></div></div>
+      <div class="skill"><strong>Python</strong><div class="bar" data-skill="75"></div></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h3>Project Portofolio</h3>
+    <div class="projects">
+      <div class="project">
+        <img src="https://via.placeholder.com/400x200" alt="Project 1">
+        <div class="project-content">
+          <h4>Website Sistem Akademik</h4>
+          <p>Aplikasi web untuk mengelola data mahasiswa, nilai, dan jadwal. Dibangun dengan Node.js dan MySQL.</p>
+          <a href="#" class="btn" style="margin-top:8px;">Lihat di GitHub</a>
+        </div>
+      </div>
+      <div class="project">
+        <img src="https://via.placeholder.com/400x200" alt="Project 2">
+        <div class="project-content">
+          <h4>Aplikasi To-Do List PWA</h4>
+          <p>Progressive Web App untuk mencatat tugas harian dengan notifikasi real-time menggunakan Firebase.</p>
+          <a href="#" class="btn" style="margin-top:8px;">Lihat di GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section id="cert">
+    <h3>Sertifikat</h3>
+    <div class="certificates">
+      <div class="cert">Front-End Developer — Dicoding (2023)</div>
+      <div class="cert">React JS — Udemy (2024)</div>
+      <div class="cert">Cloud Computing — Google (2024)</div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <h3>Kontak Saya</h3>
+    <p><i class="fa-solid fa-phone"></i> <!-- EDIT --> +62 812-3456-789</p>
+    <p><i class="fa-solid fa-envelope"></i> <!-- EDIT --> email@domain.com</p>
+    <p><i class="fa-solid fa-location-dot"></i> <!-- EDIT --> Kota, Indonesia</p>
+    <div class="socials">
+      <a href="#"><i class="fa-brands fa-github"></i></a>
+      <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 [Nama Kamu] — Dibuat dengan 💙 dan semangat IT.
+  </footer>
+
+  <script>
+    // Section fade-in effect
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.2 });
+    sections.forEach(sec => observer.observe(sec));
+
+    // Animate skill bars
+    const bars = document.querySelectorAll(".bar");
+    const animateBars = () => {
+      bars.forEach(b => {
+        b.style.width = b.dataset.skill + "%";
+      });
+    };
+    const skillObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateBars();
+          skillObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    skillObserver.observe(document.querySelector("#skills"));
+  </script>
+</body>
+</html>
+
   <!-- Kalau belum punya kit, bisa ganti dengan: 
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /> 
        (tapi kit memberi versi terbaru) -->
