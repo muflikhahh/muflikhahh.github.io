@@ -3,510 +3,331 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Muflikhah - Portofolio Web Developer Magang</title>
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-
+<title>Muflikhah — FairyTech Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-  /* RESET & FONT */
-  * {
-    box-sizing: border-box;
+  :root{
+    --bg1: #0f1724; /* deep navy */
+    --glass: rgba(255,255,255,0.06);
+    --accent1: #b794f4; /* lavender */
+    --accent2: #7ee8fa; /* cyan */
+    --accent3: #ffd6e0; /* soft pink */
+    --text: #eaf6ff;
+    --muted: #b8e9f2;
+    --card-shadow: 0 10px 30px rgba(124,58,237,0.14);
   }
-  body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: radial-gradient(ellipse at center, #0f2027 0%, #203a43 50%, #2c5364 100%);
-    color: #f0f8ff;
-    line-height: 1.6;
-    scroll-behavior: smooth;
-    min-height: 100vh;
-  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;font-family:'Poppins',sans-serif;background: radial-gradient(1200px 600px at 10% 10%, rgba(126,232,250,0.06), transparent), radial-gradient(900px 450px at 90% 90%, rgba(183,148,244,0.05), transparent), linear-gradient(180deg,var(--bg1), #081024 120%);color:var(--text);-webkit-font-smoothing:antialiased}
 
-  /* CONTAINER SECTION */
-  .section {
-    padding: 80px 5%;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
+  /* Particle canvas behind everything */
+  #particles{position:fixed;inset:0;z-index:0;pointer-events:none}
 
-  h2 {
-    text-align: center;
-    margin-bottom: 50px;
-    font-size: 2.5em;
-    color: #00ffe7; /* neon cyan */
-    text-shadow: 0 0 10px #00ffe7, 0 0 20px #00ffe7;
-  }
+  header.site-header{position:sticky;top:16px;z-index:40;padding:16px;width:calc(100% - 48px);max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));backdrop-filter:blur(6px) saturate(130%);border-radius:16px;padding-left:24px;padding-right:24px;box-shadow:var(--card-shadow)}
+  .logo{display:flex;gap:14px;align-items:center}
+  .logo .mark{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent1),var(--accent2));box-shadow:0 8px 30px rgba(126,232,250,0.12);display:flex;align-items:center;justify-content:center;font-weight:700;color:#021124}
+  nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
+  nav a:hover{color:var(--accent2);text-shadow:0 0 12px rgba(126,232,250,0.15)}
 
-  .section-subtitle {
-    text-align: center;
-    margin-top: -30px;
-    margin-bottom: 40px;
-    color: #b3ffff;
-  }
+  main{position:relative;z-index:10;max-width:1200px;margin:40px auto;padding:20px}
 
-  hr {
-    border: 0;
-    height: 1px;
-    background: linear-gradient(to right, transparent, #00ffe7, transparent);
-    margin: 50px auto;
-    width: 80%;
-  }
+  /* Hero / Profile */
+  .hero{display:grid;grid-template-columns:360px 1fr;gap:28px;align-items:center}
+  .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:18px;padding:24px;box-shadow:0 8px 30px rgba(2,12,27,0.6);border:1px solid rgba(255,255,255,0.03);backdrop-filter:blur(6px)}
 
-  /* HEADER & NAVIGATION */
-  .header {
-    background: #081f3f;
-    padding: 20px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 0 20px #00ffe7aa;
-    text-align: center;
-    backdrop-filter: saturate(180%) blur(10px);
-  }
+  .profile-photo{width:320px;height:320px;border-radius:18px;object-fit:cover;border:6px solid rgba(255,255,255,0.04);box-shadow:0 30px 60px rgba(125,82,240,0.12), 0 6px 18px rgba(0,0,0,0.6);transform:translateY(-6px);transition:transform .6s cubic-bezier(.2,.9,.2,1)}
+  .profile-photo:hover{transform:translateY(-14px) rotate(-2deg)}
+  .badge-fairy{position:relative;margin-top:-62px;margin-left:8px;padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,var(--accent3),rgba(255,255,255,0.06));color:#07212a;font-weight:700;box-shadow:0 8px 30px rgba(255,214,224,0.06)}
 
-  .header nav a {
-    color: #b3ffff;
-    text-decoration: none;
-    margin: 0 18px;
-    font-weight: 600;
-    font-size: 1.1em;
-    padding: 10px 16px;
-    border-radius: 8px;
-    transition: 0.3s ease;
-    letter-spacing: 0.03em;
-  }
+  .intro h1{font-size:2.4rem;margin:0 0 6px;background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 8px 30px rgba(126,232,250,0.06)}
+  .intro p.tagline{margin:6px 0 12px;font-weight:600;color:var(--muted)}
+  .intro p.lead{color:#dff7ff;line-height:1.6}
+  .cta-row{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn{padding:12px 18px;border-radius:999px;font-weight:700;border:none;cursor:pointer;text-decoration:none;display:inline-flex;gap:10px;align-items:center}
+  .btn-primary{background:linear-gradient(90deg,var(--accent2),var(--accent1));color:#01202a;box-shadow:0 12px 40px rgba(126,232,250,0.12);}
+  .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
 
-  .header nav a:hover,
-  .header nav a:focus {
-    color: #00ffe7;
-    background: rgba(0, 255, 231, 0.2);
-    box-shadow: 0 0 15px #00ffe7;
-    outline: none;
-  }
+  /* Floating info cards */
+  .stats{display:flex;gap:12px;margin-top:18px}
+  .stat{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));padding:10px 14px;border-radius:12px;min-width:120px;text-align:center;border:1px solid rgba(255,255,255,0.03)}
+  .stat strong{display:block;font-size:1.2rem;color:var(--accent2)}
 
-  /* PROFILE SECTION */
-  .profile-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 90vh;
-    text-align: center;
-    position: relative;
-  }
+  /* Sections */
+  section h2{font-size:1.8rem;margin:0 0 12px;color:var(--accent1)}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 
-  .profile-card {
-    background: rgba(0, 0, 0, 0.55);
-    padding: 45px 40px 60px;
-    border-radius: 20px;
-    box-shadow:
-      0 0 10px #00ffe7,
-      0 0 40px #00ffe7,
-      inset 0 0 15px #00ffe7;
-    max-width: 700px;
-    transition: transform 0.5s ease;
-  }
-  .profile-card:hover {
-    transform: scale(1.03);
-    box-shadow:
-      0 0 20px #00ffe7,
-      0 0 70px #00ffe7,
-      inset 0 0 30px #00ffe7;
-  }
+  /* Visi & Misi */
+  .vision, .mission{padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
 
-  .profile-photo {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 6px solid #00ffe7;
-    margin-bottom: 25px;
-    box-shadow: 0 0 20px #00ffe7;
-    transition: transform 0.4s ease;
-  }
+  /* Timeline / Experience */
+  .experience .exp-item{display:flex;gap:14px;align-items:flex-start;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg, rgba(126,232,250,0.02), rgba(183,148,244,0.02))}
+  .exp-item img{width:80px;height:80px;border-radius:10px;object-fit:cover}
+  .exp-body h3{margin:0;font-size:1.05rem;color:var(--accent2)}
+  .exp-body p{margin:6px 0 0;color:var(--muted)}
 
-  .profile-photo:hover {
-    transform: rotate(15deg) scale(1.1);
-    box-shadow: 0 0 40px #00ffe7, 0 0 60px #00ffe7;
-  }
+  /* Portfolio cards 3D-ish */
+  .portfolio-item{position:relative;padding:14px;border-radius:14px;overflow:hidden;transform-style:preserve-3d;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);transition:transform .45s cubic-bezier(.2,.9,.2,1), box-shadow .45s;cursor:pointer}
+  .portfolio-item:hover{transform:translateY(-18px) rotateX(4deg) translateZ(6px);box-shadow:0 30px 60px rgba(2,12,27,0.6)}
+  .project-screenshot{width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:12px;box-shadow:inset 0 0 40px rgba(126,232,250,0.03)}
+  .tech-list{display:flex;flex-wrap:wrap;gap:8px}
+  .tech-pill{padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#021124;font-weight:700;font-size:0.85rem}
 
-  h1 {
-    font-weight: 700;
-    font-size: 2.6em;
-    margin-bottom: 10px;
-    text-shadow: 0 0 6px #00ffe7;
-  }
+  /* Certificates carousel-ish */
+  .cert-row{display:flex;gap:12px;overflow:auto;padding-bottom:6px}
+  .cert{min-width:220px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
+  .cert img{width:100%;height:140px;object-fit:cover}
 
-  .tagline {
-    font-weight: 600;
-    color: #a0fff0;
-    font-size: 1.3em;
-    margin-bottom: 25px;
-    text-shadow: 0 0 8px #00ffe7aa;
-  }
+  /* Contact / Footer */
+  footer.site-foot{margin-top:30px;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01));display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid rgba(255,255,255,0.03)}
+  .contact-list{display:flex;gap:12px;align-items:center}
+  .contact-list a{color:var(--muted);text-decoration:none;font-weight:600}
 
-  .profile-card p {
-    font-size: 1.1em;
-    color: #d0faff;
-    line-height: 1.5;
-  }
+  /* Responsive */
+  @media (max-width:960px){.hero{grid-template-columns:1fr;}.grid{grid-template-columns:1fr}.grid-3{grid-template-columns:repeat(2,1fr)}.profile-photo{width:260px;height:260px}}
+  @media (max-width:560px){.profile-photo{width:200px;height:200px}.grid-3{grid-template-columns:1fr}}
 
-  .btn-primary {
-    display: inline-block;
-    background: linear-gradient(45deg, #00ffe7, #00c6ff);
-    color: #001e27;
-    padding: 14px 35px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 700;
-    margin: 30px 0 15px;
-    box-shadow: 0 0 15px #00ffe7;
-    transition: background 0.4s ease, transform 0.3s ease;
-  }
+  /* Subtle floating orbs (decorative) */
+  .orb{position:absolute;border-radius:999px;filter:blur(40px);opacity:.25;mix-blend-mode:screen}
+  .orb.o1{width:240px;height:240px;left:-40px;top:-120px;background:linear-gradient(90deg,var(--accent1),var(--accent2));}
+  .orb.o2{width:160px;height:160px;right:-40px;bottom:-80px;background:linear-gradient(90deg,var(--accent3),var(--accent2));}
 
-  .btn-primary:hover,
-  .btn-primary:focus {
-    background: linear-gradient(45deg, #00c6ff, #00ffe7);
-    transform: translateY(-4px);
-    box-shadow: 0 0 25px #00c6ff;
-    outline: none;
-  }
-
-  .contact-links {
-    margin-top: 15px;
-  }
-
-  .contact-links a {
-    color: #a0fff0;
-    text-decoration: none;
-    font-weight: 600;
-    margin: 0 15px;
-    font-size: 1.1em;
-    transition: color 0.3s ease;
-  }
-
-  .contact-links a:hover,
-  .contact-links a:focus {
-    color: #00ffe7;
-    text-shadow: 0 0 10px #00ffe7;
-    outline: none;
-  }
-
-  /* TIMELINE SECTION */
-  .timeline {
-    position: relative;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .timeline::after {
-    content: '';
-    position: absolute;
-    width: 4px;
-    background: #00ffe7;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -2px;
-    box-shadow: 0 0 20px #00ffe7;
-  }
-
-  .timeline-item {
-    padding: 25px 40px;
-    position: relative;
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 15px;
-    box-shadow: 0 0 15px #00ffe7aa;
-    margin-bottom: 50px;
-    width: 45%;
-    color: #a0fff0;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    cursor: default;
-  }
-
-  .timeline-item:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 0 25px #00ffe7ff;
-  }
-
-  .timeline-item h3 {
-    color: #00ffe7;
-    margin-top: 0;
-    font-weight: 700;
-  }
-
-  .timeline-item p {
-    font-weight: 500;
-    font-size: 1.1em;
-  }
-
-  .timeline-item:nth-child(odd) {
-    left: 0;
-  }
-
-  .timeline-item:nth-child(even) {
-    left: 55%;
-  }
-
-  .timeline-item::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    right: -34px;
-    background: #00ffe7;
-    box-shadow: 0 0 20px #00ffe7;
-    top: 28px;
-    border-radius: 50%;
-    border: 4px solid #0f2027;
-    z-index: 1;
-    transition: background-color 0.3s ease;
-  }
-
-  .timeline-item:nth-child(even)::after {
-    left: -34px;
-    right: auto;
-  }
-
-  /* PORTFOLIO GRID */
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
-  }
-
-  .portfolio-item {
-    background: rgba(0, 0, 0, 0.45);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 0 15px #00ffe7aa;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    cursor: pointer;
-    color: #e0f7fa;
-  }
-
-  .portfolio-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 40px #00ffe7ff;
-  }
-
-  .project-screenshot {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    display: block;
-    transition: opacity 0.4s ease;
-  }
-
-  .project-details {
-    padding: 25px 25px 35px;
-  }
-
-  .project-details h3 {
-    margin-top: 0;
-    color: #00ffe7;
-    font-size: 1.6em;
-    text-shadow: 0 0 10px #00ffe7aa;
-  }
-
-  .project-details p {
-    font-size: 1em;
-    line-height: 1.4;
-    color: #b3ffff;
-  }
-
-  .tech-stack {
-    margin-top: 18px;
-  }
-
-  .tech-stack span {
-    display: inline-block;
-    background: linear-gradient(45deg, #00ffe7, #00c6ff);
-    color: #001e27;
-    padding: 7px 16px;
-    border-radius: 30px;
-    font-size: 0.9em;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    font-weight: 700;
-    box-shadow: 0 0 10px #00ffe7;
-  }
-
-  /* FOOTER */
-  footer {
-    text-align: center;
-    padding: 25px 15px;
-    background: #081f3f;
-    color: #a0f0f9;
-    font-size: 1em;
-    box-shadow: 0 0 20px #00ffe7aa inset;
-  }
-
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    .section {
-      padding: 60px 5%;
-    }
-    .timeline::after {
-      left: 20px;
-    }
-    .timeline-item {
-      width: 100%;
-      padding-left: 60px;
-      padding-right: 25px;
-      left: 0 !important;
-    }
-    .timeline-item::after,
-    .timeline-item:nth-child(even)::after {
-      left: 12px !important;
-      right: auto !important;
-    }
-  }
+  /* small accessibility focus styles */
+  [tabindex]:focus{outline:3px solid rgba(126,232,250,0.18);outline-offset:4px}
 </style>
 </head>
 <body>
+<canvas id="particles"></canvas>
+<div class="orb o1"></div>
+<div class="orb o2"></div>
 
-<header class="header">
-  <nav>
-    <a href="#profile" class="nav-link">Profil</a>
-    <a href="#pendidikan" class="nav-link">Pendidikan</a>
-    <a href="#portofolio" class="nav-link">Portofolio</a>
+<header class="site-header" role="banner">
+  <div class="logo">
+    <div class="mark">M</div>
+    <div>
+      <div style="font-weight:700">Muflikhah</div>
+      <div style="font-size:12px;color:var(--muted)">Junior Programming • FairyTech</div>
+    </div>
+  </div>
+  <nav role="navigation" aria-label="Main navigation">
+    <a href="#profile">Profil</a>
+    <a href="#visi">Visi & Misi</a>
+    <a href="#experience">Pengalaman</a>
+    <a href="#portofolio">Portofolio</a>
+    <a href="#kontak">Kontak</a>
   </nav>
 </header>
 
 <main>
-  <section id="profile" class="section profile-section">
-    <div class="profile-card" tabindex="0">
-      <img src="Muflikhah.png" alt="Foto Profil Muflikhah" class="profile-photo" />
-      <h1>Halo, Saya Muflikhah 👋</h1>
-      <p class="tagline">Junior Programming</p>
-      <p>
-        Saya Muflikhah siswa kelas XI SMK Informatika Utama dengan jurusan Pengembangan Perangkat Lunak dan Gim (PPLG). Terampil dalam pengembangan aplikasi web menggunakan PHP, CSS, HTML, NETBEANS, dan MYSQL. Memiliki pengalaman dalam membuat web statis yaitu proyek toko online, serta pengoperasian Microsoft Office. Memiliki karakter yang proaktif dan adaptif. Serta siap memberikan kontribusi positif dalam tim, saya memiliki minat Praktik Kerja Lapangan (PKL) sebagai programmer.
-      </p>
-      <a href="#portofolio" class="btn-primary">Lihat Karya Saya <i class="fas fa-arrow-down"></i></a>
-      <div class="contact-links" aria-label="Kontak saya">
-        <a href="mailto:muflikhah2304@email.com" aria-label="Email"><i class="fas fa-envelope"></i> Email</a> |
-        <a href="https://github.com/muflikhahh" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i> GitHub</a>
+  <section id="profile" class="hero">
+    <div class="card" aria-label="Foto profil">
+      <img src="Muflikhah.png" alt="Foto Profil Muflikhah" class="profile-photo">
+      <div class="badge-fairy">Fairy • Anak IT</div>
+      <div style="margin-top:12px;color:var(--muted);font-size:13px">SMK Informatika Utama • PPLG • Kelas XI</div>
+    </div>
+
+    <div class="card intro">
+      <h1>Halo, Saya Muflikhah ✨</h1>
+      <p class="tagline">Junior Programming — Web & UI Dreams</p>
+      <p class="lead">Saya adalah siswa SMK jurusan PPLG yang menyukai estetika magical tapi tetap rapi dan teknikal. Terampil membuat website statis, pengelolaan basis data sederhana, dan desain visual menggunakan Canva. Sedang mencari pengalaman Praktik Kerja Lapangan (PKL) sebagai programmer.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#portofolio">Lihat Portofolio</a>
+        <a class="btn btn-ghost" href="#kontak">Hubungi Saya</a>
+      </div>
+
+      <div class="stats" role="list">
+        <div class="stat" role="listitem"><small>Proyek</small><strong>2+</strong></div>
+        <div class="stat" role="listitem"><small>Tools</small><strong>HTML/CSS/PHP</strong></div>
+        <div class="stat" role="listitem"><small>Bahasa</small><strong>Indonesia</strong></div>
       </div>
     </div>
   </section>
 
-  <hr />
-
-  <section id="pendidikan" class="section" aria-label="Riwayat Pendidikan">
-    <h2>🎓 Riwayat Pendidikan</h2>
-    <div class="timeline">
-      <div class="timeline-item" tabindex="0">
-        <h3>MTSN 1 Lampung Selatan</h3>
-        <p>2020 – 2023</p>
+  <section id="visi" style="margin-top:28px">
+    <div class="grid">
+      <div class="vision card" tabindex="0">
+        <h2>Visi</h2>
+        <p>Mewujudkan karya digital yang indah, ramah pengguna, dan berkontribusi pada solusi lokal melalui teknologi.</p>
       </div>
-      <div class="timeline-item" tabindex="0">
-        <h3>SMK Informatika Utama</h3>
-        <p>2024 – Sekarang</p>
+      <div class="mission card" tabindex="0">
+        <h2>Misi</h2>
+        <ol style="margin:8px 0 0 18px;color:var(--muted)">
+          <li>Meningkatkan keterampilan programming dan desain setiap hari.</li>
+          <li>Membangun proyek nyata yang bermanfaat untuk komunitas sekolah dan kecil.</li>
+          <li>Bekerja kolaboratif dalam tim dan menjunjung etika profesional.</li>
+        </ol>
       </div>
     </div>
   </section>
 
-  <hr />
+  <section id="experience" style="margin-top:28px">
+    <h2>Pengalaman Proyek</h2>
+    <div class="experience grid" style="margin-top:12px">
+      <div class="exp-item card" tabindex="0">
+        <img src="mizanstore.png" alt="Toko Online">
+        <div class="exp-body">
+          <h3>Online Shop Statis</h3>
+          <p>Proyek kelas: Website toko online statis dibuat dengan HTML & CSS. Menekankan layout responsif dan desain produk yang menarik.</p>
+          <p style="margin-top:8px;color:var(--muted)"><strong>Peran:</strong> Desain UI, HTML & CSS</p>
+          <p style="margin-top:6px;color:var(--muted)"><strong>Durasi:</strong> 2 bulan (2023)</p>
+        </div>
+      </div>
 
-  <section id="portofolio" class="section" aria-label="Portofolio Proyek Web">
-    <h2>💻 Portofolio Proyek Web</h2>
-    <p class="section-subtitle">Studi kasus dan aplikasi yang dikembangkan secara mandiri.</p>
-    <div class="portfolio-grid" id="portfolio-items" aria-live="polite" aria-atomic="true">
-      <!-- Portfolio items will be added here dynamically -->
+      <div class="exp-item card" tabindex="0">
+        <img src="FLYER-LOMBA-VIDEO-FIX-pdf.jpg" alt="Desain Flyer">
+        <div class="exp-body">
+          <h3>Desain Flyer (Canva)</h3>
+          <p>Membuat desain flyer untuk kegiatan sekolah menggunakan Canva, fokus pada komposisi visual dan tipografi yang jelas.</p>
+          <p style="margin-top:8px;color:var(--muted)"><strong>Peran:</strong> Desainer Visual</p>
+          <p style="margin-top:6px;color:var(--muted)"><strong>Durasi:</strong> 2 minggu (2023)</p>
+        </div>
+      </div>
+
+      <div class="exp-item card" tabindex="0">
+        <img src="project3-placeholder.png" alt="Proyek Lainnya">
+        <div class="exp-body">
+          <h3>Proyek: CRUD Sederhana (Rencana)</h3>
+          <p>Rencana proyek CRUD sederhana menggunakan PHP & MySQL untuk manajemen data produk — sedang dalam pengembangan.</p>
+          <p style="margin-top:8px;color:var(--muted)"><strong>Peran:</strong> Backend dasar & Database</p>
+        </div>
+      </div>
     </div>
   </section>
+
+  <section id="portofolio" style="margin-top:28px">
+    <h2>Portofolio Proyek</h2>
+    <p style="color:var(--muted)">Klik kartu untuk melihat detail singkat.</p>
+    <div class="grid-3" style="margin-top:12px">
+      <div class="portfolio-item" tabindex="0" role="button" aria-pressed="false" onclick="showDetails(1)">
+        <img src="mizanstore.png" alt="Online Shop" class="project-screenshot">
+        <h3>Online Shop Statis</h3>
+        <p style="color:var(--muted)">Situs toko sederhana untuk praktik layout e-commerce.</p>
+        <div class="tech-list" style="margin-top:10px">
+          <div class="tech-pill">HTML</div>
+          <div class="tech-pill">CSS</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item" tabindex="0" role="button" aria-pressed="false" onclick="showDetails(2)">
+        <img src="FLYER-LOMBA-VIDEO-FIX-pdf.jpg" alt="Flyer" class="project-screenshot">
+        <h3>Desain Flyer</h3>
+        <p style="color:var(--muted)">Visual promosi acara, dibuat di Canva.</p>
+        <div class="tech-list" style="margin-top:10px">
+          <div class="tech-pill">Canva</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item" tabindex="0" role="button" aria-pressed="false" onclick="showDetails(3)">
+        <img src="project3-placeholder.png" alt="CRUD" class="project-screenshot">
+        <h3>CRUD Sederhana</h3>
+        <p style="color:var(--muted)">Rencana menggunakan PHP & MySQL untuk latihan backend.</p>
+        <div class="tech-list" style="margin-top:10px">
+          <div class="tech-pill">PHP</div>
+          <div class="tech-pill">MySQL</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" style="margin-top:28px">
+    <h2>Keahlian (Detail per Proyek)</h2>
+    <div class="grid" style="margin-top:12px">
+      <div class="card" tabindex="0">
+        <h3>Proyek 1 — Online Shop Statis</h3>
+        <ul style="color:var(--muted)">
+          <li>Membangun layout responsif menggunakan HTML & CSS (Flexbox, Grid)</li>
+          <li>Mengoptimalkan gambar dan struktur konten untuk performa</li>
+          <li>Mendesain UI produk yang ramah pengguna</li>
+        </ul>
+      </div>
+      <div class="card" tabindex="0">
+        <h3>Proyek 2 — Desain Flyer</h3>
+        <ul style="color:var(--muted)">
+          <li>Mendesain komposisi visual dan hierarki informasi</li>
+          <li>Penggunaan tipografi yang efektif dan palet warna yang konsisten</li>
+          <li>Eksport file siap cetak dan digital (PDF/JPG)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="certificates" style="margin-top:28px">
+    <h2>Sertifikat</h2>
+    <div class="cert-row" style="margin-top:12px">
+      <div class="cert card"><img src="sertifikat1.png" alt="Sertifikat 1"></div>
+      <div class="cert card"><img src="sertifikat2.png" alt="Sertifikat 2"></div>
+      <div class="cert card"><img src="sertifikat3.png" alt="Sertifikat 3"></div>
+    </div>
+  </section>
+
+  <section id="kontak" style="margin-top:28px">
+    <h2>Kontak</h2>
+    <div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap">
+      <div>
+        <p style="margin:0;font-weight:700">Ingin mengajak kerjasama atau PKL?</p>
+        <p style="margin:6px 0;color:var(--muted)">Hubungi saya melalui telepon, GitHub, atau sosial media.</p>
+        <div style="margin-top:8px;color:var(--muted)">
+          <div><strong>Telepon:</strong> 0812-3456-7890</div>
+          <div><strong>GitHub:</strong> <a href="https://github.com/muflikhahh" target="_blank" style="color:var(--accent2);text-decoration:none">github.com/muflikhahh</a></div>
+          <div><strong>Instagram:</strong> <a href="https://instagram.com/yourusername" target="_blank" style="color:var(--accent1);text-decoration:none">@yourusername</a></div>
+          <div><strong>Alamat:</strong> Lampung Selatan, Indonesia</div>
+        </div>
+      </div>
+      <div style="min-width:220px">
+        <form onsubmit="event.preventDefault();alert('Terima kasih! Pesanmu sudah terkirim (demo).');" aria-label="Form kontak singkat">
+          <label style="display:block;color:var(--muted);font-weight:600">Nama</label>
+          <input type="text" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);margin-top:6px;background:transparent;color:var(--text)">
+          <label style="display:block;color:var(--muted);font-weight:600;margin-top:10px">Pesan</label>
+          <textarea required style="width:100%;height:90px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);margin-top:6px;background:transparent;color:var(--text)"></textarea>
+          <div style="margin-top:10px;text-align:right"><button class="btn btn-primary" type="submit">Kirim</button></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-foot">
+    <div>&copy; 2025 Muflikhah • Made with ❤️ FairyTech</div>
+    <div class="contact-list">
+      <a href="mailto:muflikhah2304@email.com">Email</a>
+      <a href="https://github.com/muflikhahh" target="_blank">GitHub</a>
+    </div>
+  </footer>
 </main>
 
-<footer>
-  <p>Dibuat dengan ❤️ oleh Muflikhah | &copy; 2025</p>
-</footer>
-
-<!-- FontAwesome CDN for icons -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" defer></script>
-
 <script>
-  // Data Portofolio
-  const portfolioData = [
-    {
-      id: 1,
-      name: "Online Shop Statis Website",
-      description: "Di kelas 10, saya pernah membuat website statis toko online sebagai proyek tugas sekolah menggunakan HTML dan CSS.",
-      techStack: ["HTML", "CSS"],
-      screenshot: "mizanstore.png"
-    },
-    {
-      id: 2,
-      name: "Desain Flyer",
-      description: "Saya pernah membuat desain flyer sendiri menggunakan Canva sebagai tugas sekolah.",
-      techStack: ["CANVA (Desain)"],
-      screenshot: "FLYER-LOMBA-VIDEO-FIX-pdf.jpg"
-    }
-  ];
+// Simple particle background (lightweight)
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let W = canvas.width = innerWidth;
+let H = canvas.height = innerHeight;
+const particles = [];
+const colors = ['rgba(126,232,250,0.9)','rgba(183,148,244,0.9)','rgba(255,214,224,0.9)'];
 
-  // Membuat elemen portofolio secara dinamis
-  function createPortfolioItem(item) {
-    const itemDiv = document.createElement('div');
-    itemDiv.classList.add('portfolio-item');
-    itemDiv.setAttribute('tabindex', '0');
-    itemDiv.setAttribute('role', 'button');
-    itemDiv.setAttribute('aria-pressed', 'false');
-    itemDiv.setAttribute('aria-label', `Detail proyek ${item.name}`);
-
-    // Menampilkan detail proyek saat klik atau tekan enter/space
-    function showDetails() {
-      alert(
-        `DETAIL PROYEK: ${item.name}\n\n` +
-        `Deskripsi: ${item.description}\n\n` +
-        `Tech Stack Utama: ${item.techStack.join(', ')}\n\n` +
-        `*Ini menunjukkan penguasaan kerangka kerja modern dan desain responsif.*`
-      );
-    }
-
-    itemDiv.onclick = showDetails;
-    itemDiv.onkeydown = function(e) {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        showDetails();
-      }
-    };
-
-    const techStackHtml = item.techStack.map(tech => `<span>${tech}</span>`).join('');
-
-    itemDiv.innerHTML = `
-      <img src="${item.screenshot}" alt="Screenshot Proyek ${item.name}" class="project-screenshot" loading="lazy" />
-      <div class="project-details">
-        <h3>${item.name}</h3>
-        <p>${item.description}</p>
-        <div class="tech-stack">${techStackHtml}</div>
-      </div>
-    `;
-
-    return itemDiv;
+function rand(min,max){return Math.random()*(max-min)+min}
+for(let i=0;i<60;i++){
+  particles.push({x:rand(0,W),y:rand(0,H),r:rand(0.6,2.6),vx:rand(-0.2,0.2),vy:rand(-0.15,0.15),c:colors[i%colors.length]});
+}
+function resize(){W=canvas.width=innerWidth;H=canvas.height=innerHeight}
+addEventListener('resize',resize);
+function draw(){ctx.clearRect(0,0,W,H);
+  for(const p of particles){
+    p.x+=p.vx; p.y+=p.vy;
+    if(p.x<0) p.x=W; if(p.x>W) p.x=0; if(p.y<0) p.y=H; if(p.y>H) p.y=0;
+    ctx.beginPath(); ctx.fillStyle=p.c; ctx.globalAlpha=0.12; ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
   }
+  requestAnimationFrame(draw);
+}
+draw();
 
-  // Inisialisasi portofolio dan smooth scroll
-  document.addEventListener('DOMContentLoaded', () => {
-    const portfolioGrid = document.getElementById('portfolio-items');
-
-    portfolioData.forEach(item => {
-      portfolioGrid.appendChild(createPortfolioItem(item));
-    });
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        document.querySelector(targetId).scrollIntoView({
-          behavior: 'smooth'
-        });
-        this.blur();
-      });
-    });
-  });
+// Small accessible project detail dialog using alert (keeps simple & portable)
+function showDetails(id){
+  if(id===1){
+    alert('Online Shop Statis\n\nDeskripsi: Website toko online statis.\nTech: HTML, CSS.\nPeran: UI & Frontend.');
+  } else if(id===2){
+    alert('Desain Flyer\n\nDeskripsi: Flyer acara dibuat dengan Canva.\nTech: Canva.\nPeran: Desain Visual.');
+  } else {
+    alert('CRUD Sederhana (Rencana)\n\nDeskripsi: Proyek latihan backend dengan PHP & MySQL.');
+  }
+}
 </script>
 </body>
 </html>
