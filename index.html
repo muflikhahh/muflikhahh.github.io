@@ -63,3 +63,480 @@
     }
 
     .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .logo{
+      width:48px;height:48px;border-radius:10px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--blue),#0f4fc0);
+      color:white;font-weight:700;
+      box-shadow:0 6px 18px rgba(11,97,211,0.18);
+      flex-shrink:0;
+    }
+    .brand h1{font-size:16px;margin:0}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+
+    nav{margin-left:auto}
+    .nav-list{
+      display:flex;gap:12px;align-items:center;
+      list-style:none;margin:0;padding:0;
+    }
+    .nav-list a{
+      text-decoration:none;color:var(--blue);
+      padding:8px 12px;border-radius:10px;font-weight:600;
+      transition:all var(--transition);
+    }
+    .nav-list a:hover{background:rgba(11,97,211,0.06);transform:translateY(-3px)}
+    .cta-download{
+      background:linear-gradient(90deg,var(--blue) 0%, #0f4fc0 100%);
+      color:white;padding:8px 12px;border-radius:10px;font-weight:600;
+      box-shadow:0 8px 24px rgba(11,97,211,0.12);
+    }
+
+    /* Intro */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:28px;
+      align-items:center;
+      margin-top:22px;
+    }
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:20px;
+      box-shadow:0 8px 30px rgba(16,24,40,0.06);
+    }
+    .intro h2{margin:0 0 6px 0;font-size:26px}
+    .intro p.lead{margin:0;color:var(--muted)}
+    .profile{
+      display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center;
+      padding:18px;
+    }
+    .avatar{
+      width:140px;height:140px;border-radius:14px;display:grid;place-items:center;
+      font-size:36px;color:white;background:linear-gradient(135deg,#1e90ff,#0b61d3);
+      box-shadow:0 10px 30px rgba(11,97,211,0.12);
+    }
+    .small-info{font-size:14px;color:var(--muted)}
+    .socials{display:flex;gap:10px;justify-content:center}
+    .socials a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:8px;background:var(--light);text-decoration:none;color:var(--blue)}
+
+    /* Sections grid */
+    .sections{
+      margin-top:20px;
+      display:grid;
+      grid-template-columns:1fr 360px;
+      gap:20px;
+      align-items:start;
+    }
+
+    section{scroll-margin-top:90px}
+
+    /* Info text */
+    .section-title{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+    .section-title h3{margin:0;font-size:18px}
+    .muted{color:var(--muted);font-size:14px}
+
+    /* Skill bars */
+    .skills{display:grid;gap:10px}
+    .skill{
+      display:flex;align-items:center;gap:12px;
+    }
+    .skill .label{width:120px;font-weight:600}
+    .bar-wrap{flex:1;background:linear-gradient(180deg,#eef3fb,#f8fafc);padding:8px;border-radius:999px}
+    .bar{height:12px;border-radius:999px;background:linear-gradient(90deg,var(--blue),#2b7be6);width:0%;transition:width 900ms cubic-bezier(.2,.9,.3,1)}
+
+    /* Project card */
+    .project{
+      display:flex;gap:14px;align-items:center;padding:12px;border-radius:10px;background:linear-gradient(180deg,#ffffff,#fbfdff);
+      box-shadow:0 8px 20px rgba(12,20,40,0.04);
+    }
+    .project .preview{
+      flex-shrink:0;width:120px;height:80px;border-radius:8px;display:grid;place-items:center;
+      overflow:hidden;background:linear-gradient(135deg,#eef7ff,#e6f0ff);
+    }
+    .project h4{margin:0}
+    .project p{margin:6px 0;color:var(--muted);font-size:14px}
+    .project .links{display:flex;gap:8px;align-items:center}
+
+    /* Certificates list */
+    .cert-list{display:flex;flex-wrap:wrap;gap:10px}
+    .cert{background:var(--light);padding:10px;border-radius:8px;font-size:13px}
+
+    /* Contact card */
+    .contact-list{display:flex;flex-direction:column;gap:10px}
+    .contact-item{display:flex;gap:12px;align-items:center}
+    .contact-item i{width:36px;height:36px;display:grid;place-items:center;border-radius:8px;background:rgba(11,97,211,0.08);color:var(--blue)}
+
+    footer{text-align:center;color:var(--muted);margin-top:28px;font-size:14px}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero,.sections{grid-template-columns:1fr;}
+      nav{display:none}
+      header{padding:10px}
+    }
+
+    /* small helper */
+    .muted-block{color:var(--muted);font-size:14px}
+    a.link{color:var(--blue);text-decoration:none;font-weight:600}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(11,97,211,0.06);color:var(--blue);font-weight:600;font-size:13px}
+  </style>
+</head>
+<body>
+
+  <!--
+    EDITABLE SINGLE-FILE PORTFOLIO
+    - Ganti teks antara <!-- EDIT HERE --> di tiap section
+    - Ubah link sosial / github di bagian kontak
+    - Untuk menambah project/sertifikat, copy block project / cert dan modifikasi isinya
+  -->
+
+  <div class="container">
+    <header class="card" role="banner" aria-label="Header">
+      <div class="brand" aria-hidden="false">
+        <div class="logo">IT</div>
+        <div>
+          <h1><!-- EDIT HERE: Nama Lengkap -->Nama Lengkap Kamu</h1>
+          <p><!-- EDIT HERE: Tagline/jurusan -->Mahasiswa/Alumni IT — Passionate Developer</p>
+        </div>
+      </div>
+
+      <nav role="navigation" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="#about">Tentang</a></li>
+          <li><a href="#visi">Visi & Misi</a></li>
+          <li><a href="#education">Pendidikan</a></li>
+          <li><a href="#projects">Proyek</a></li>
+          <li><a href="#skills">Keahlian</a></li>
+          <li><a href="#certs">Sertifikat</a></li>
+          <li><a href="#contact" class="cta-download">Kontak</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- HERO / INTRO -->
+    <main class="hero" role="main">
+      <div class="card intro" id="about">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+          <div>
+            <h2><!-- EDIT HERE: Perkenalan singkat -->Halo, Saya [Nama Kamu]</h2>
+            <p class="lead"><!-- EDIT HERE: Deskripsi singkat (1-2 kalimat) -->
+              Saya seorang developer / mahasiswa jurusan IT yang fokus pada pembuatan aplikasi web dan solusi perangkat lunak. Saya suka belajar teknologi baru dan membangun proyek nyata.
+            </p>
+          </div>
+          <div class="pill">Developer — IT</div>
+        </div>
+
+        <hr style="margin:18px 0;border:none;border-top:1px solid #eef3fb">
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <div style="flex:1;min-width:220px;">
+            <h4 class="section-title"><span style="font-size:18px">🔎</span><span style="margin-left:8px">Profil Singkat</span></h4>
+            <p class="muted-block"><strong><!-- EDIT HERE: Nama Lengkap -->Nama Lengkap Kamu</strong><br>
+            <!-- EDIT HERE: Jurusan -->Jurusan: Teknik Informatika / Sistem Informasi<br>
+            <!-- EDIT HERE: Passion -->Passion: Web Development, Backend, DevOps</p>
+          </div>
+
+          <div style="min-width:180px;">
+            <h4 class="section-title"><span style="font-size:18px">📬</span><span style="margin-left:8px">Info Singkat</span></h4>
+            <p class="muted-block">Lokasi: <!-- EDIT HERE: Alamat/kota -->Kota, Negara<br>
+            Email: <a class="link" href="mailto:email@domain.com"><!-- EDIT HERE: Email -->email@domain.com</a><br>
+            Telepon: <a class="link" href="tel:+628123456789"><!-- EDIT HERE: No HP -->+62 812-3456-789</a></p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card profile" aria-label="Profile card">
+        <div class="avatar" aria-hidden="true">NK</div>
+        <div>
+          <div style="font-weight:700;font-size:16px"><!-- EDIT HERE: Nama Lengkap -->Nama Lengkap Kamu</div>
+          <div class="small-info"><!-- EDIT HERE: Jurusan & tahun -->Teknik Informatika — Angkatan 20XX</div>
+        </div>
+
+        <div class="socials">
+          <!-- EDIT HERE: Ganti link sosialmu -->
+          <a href="https://github.com/username" target="_blank" title="GitHub" rel="noopener"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/username" target="_blank" title="LinkedIn" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://instagram.com/username" target="_blank" title="Instagram" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+
+        <div style="width:100%;margin-top:8px">
+          <a class="link" href="#projects">Lihat Proyek →</a>
+        </div>
+      </aside>
+    </main>
+
+    <!-- MAIN SECTIONS -->
+    <div class="sections">
+      <div>
+        <!-- Visi & Misi -->
+        <section id="visi" class="card">
+          <div class="section-title">
+            <h3>Visi & Misi</h3>
+          </div>
+
+          <div style="display:flex;gap:18px;flex-wrap:wrap;">
+            <div style="flex:1;min-width:220px">
+              <h4 style="margin-top:0">Visi</h4>
+              <p class="muted"> <!-- EDIT HERE: Visi singkat -->
+                Menjadi profesional IT yang handal dalam merancang dan mengimplementasikan solusi perangkat lunak yang berdampak bagi masyarakat dan bisnis.
+              </p>
+            </div>
+            <div style="flex:1;min-width:220px">
+              <h4 style="margin-top:0">Misi</h4>
+              <ul class="muted">
+                <!-- EDIT HERE: Misi (bullet) -->
+                <li>Terus belajar dan menguasai teknologi terkini.</li>
+                <li>Membangun proyek yang berguna dan dapat dipakai nyata.</li>
+                <li>Berkolaborasi dalam tim untuk menyelesaikan masalah kompleks.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Pendidikan -->
+        <section id="education" class="card" style="margin-top:16px">
+          <div class="section-title">
+            <h3>Pendidikan</h3>
+          </div>
+
+          <div>
+            <!-- EDIT HERE: Riwayat pendidikan; copy block untuk menambah -->
+            <div style="margin-bottom:12px">
+              <strong>Universitas XYZ</strong> — S1 Teknik Informatika <span style="color:var(--muted)"> (2019 — 2023)</span>
+              <p class="muted">IPK: 3.XX — Fokus pada pemrograman web, basis data, dan keamanan.</p>
+            </div>
+
+            <div style="margin-bottom:6px">
+              <strong>SMK ABC</strong> — Teknik Komputer Jaringan <span style="color:var(--muted)"> (2016 — 2019)</span>
+              <p class="muted">Pelajaran: Jaringan, Pemrograman Dasar, Sistem Operasi</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Pengalaman Proyek -->
+        <section id="projects" class="card" style="margin-top:16px">
+          <div class="section-title">
+            <h3>Pengalaman Proyek</h3>
+          </div>
+
+          <!-- EDIT HERE: Project Experience blocks -->
+          <div style="display:grid;gap:12px">
+            <div class="project">
+              <div class="preview" aria-hidden="true">
+                <!-- simple inline SVG preview (ganti dengan <img src="..."> jika punya gambar) -->
+                <svg width="120" height="80" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="120" height="80" fill="#eef7ff"/>
+                  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="#0b61d3">Preview</text>
+                </svg>
+              </div>
+              <div style="flex:1">
+                <h4><!-- EDIT HERE: Judul Proyek -->Sistem Informasi Akademik</h4>
+                <p><!-- EDIT HERE: Deskripsi singkat proyek -->
+                  Aplikasi web untuk manajemen data mahasiswa, pendaftaran, dan laporan akademik. Dibangun dengan HTML/CSS/JS dan backend menggunakan Node.js.
+                </p>
+                <div class="links">
+                  <a class="link" href="https://github.com/username/project-1" target="_blank" rel="noopener">GitHub</a>
+                  <span style="color:var(--muted)">•</span>
+                  <span class="muted">Role: Fullstack Developer</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project">
+              <div class="preview" aria-hidden="true">
+                <svg width="120" height="80" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="120" height="80" fill="#eef7ff"/>
+                  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="#0b61d3">Preview</text>
+                </svg>
+              </div>
+              <div style="flex:1">
+                <h4><!-- EDIT HERE: Judul Proyek 2 -->Aplikasi Mobile (PWA)</h4>
+                <p><!-- EDIT HERE: Deskripsi singkat proyek 2 -->
+                  Progressive Web App untuk catatan dan jadwal tugas, dilengkapi notifikasi dan sinkronisasi ke cloud. Menggunakan React + Firebase.
+                </p>
+                <div class="links">
+                  <a class="link" href="https://github.com/username/project-2" target="_blank" rel="noopener">GitHub</a>
+                  <span style="color:var(--muted)">•</span>
+                  <span class="muted">Role: Frontend / Integrasi</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Keahlian -->
+        <section id="skills" class="card" style="margin-top:16px">
+          <div class="section-title">
+            <h3>Keahlian</h3>
+          </div>
+
+          <div class="skills">
+            <!-- EDIT HERE: ubah data-skill dan teks label untuk menyesuaikan -->
+            <div class="skill">
+              <div class="label">HTML</div>
+              <div class="bar-wrap"><div class="bar" data-skill="95"></div></div>
+            </div>
+            <div class="skill">
+              <div class="label">CSS</div>
+              <div class="bar-wrap"><div class="bar" data-skill="90"></div></div>
+            </div>
+            <div class="skill">
+              <div class="label">JavaScript</div>
+              <div class="bar-wrap"><div class="bar" data-skill="88"></div></div>
+            </div>
+            <div class="skill">
+              <div class="label">React</div>
+              <div class="bar-wrap"><div class="bar" data-skill="82"></div></div>
+            </div>
+            <div class="skill">
+              <div class="label">Python</div>
+              <div class="bar-wrap"><div class="bar" data-skill="75"></div></div>
+            </div>
+            <div class="skill">
+              <div class="label">Java</div>
+              <div class="bar-wrap"><div class="bar" data-skill="65"></div></div>
+            </div>
+            <div class="skill">
+              <div class="label">UI/UX</div>
+              <div class="bar-wrap"><div class="bar" data-skill="60"></div></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sertifikat -->
+        <section id="certs" class="card" style="margin-top:16px">
+          <div class="section-title">
+            <h3>Sertifikat</h3>
+          </div>
+
+          <div class="cert-list">
+            <!-- EDIT HERE: ganti nama sertifikat / link -->
+            <div class="cert"><strong>Certified Web Dev</strong><div class="muted"> — Platform XYZ (2024)</div></div>
+            <div class="cert"><strong>React Fundamentals</strong><div class="muted"> — Bootcamp ABC (2023)</div></div>
+            <div class="cert"><strong>Cloud Basics</strong><div class="muted"> — Provider Cloud (2022)</div></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- SIDEBAR: kontak singkat & CTA -->
+      <aside>
+        <div class="card">
+          <div class="section-title">
+            <h3>Kontak Saya</h3>
+          </div>
+
+          <div class="contact-list">
+            <div class="contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <div><strong><!-- EDIT HERE: No HP -->+62 812-3456-789</strong><div class="muted">Telepon / WhatsApp</div></div>
+            </div>
+
+            <div class="contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <div><strong><!-- EDIT HERE: Email -->email@domain.com</strong><div class="muted">Email</div></div>
+            </div>
+
+            <div class="contact-item">
+              <i class="fa-brands fa-github"></i>
+              <div><strong><a class="link" href="https://github.com/username" target="_blank" rel="noopener"><!-- EDIT HERE: GitHub -->github.com/username</a></strong><div class="muted">Repos & kode</div></div>
+            </div>
+
+            <div class="contact-item">
+              <i class="fa-brands fa-linkedin"></i>
+              <div><strong><a class="link" href="https://linkedin.com/in/username" target="_blank" rel="noopener"><!-- EDIT HERE: LinkedIn -->linkedin.com/in/username</a></strong><div class="muted">Profil profesional</div></div>
+            </div>
+
+            <div class="contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <div><strong><!-- EDIT HERE: Alamat -->Kota, Provinsi</strong><div class="muted">Alamat</div></div>
+            </div>
+          </div>
+
+          <hr style="margin:12px 0;border:none;border-top:1px solid #f0f4fb">
+
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <a class="pill" href="#projects">Lihat Proyek</a>
+            <a class="pill" href="mailto:email@domain.com">Hubungi Saya</a>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px;text-align:center">
+          <h4 style="margin:8px 0 6px 0">Download CV</h4>
+          <p class="muted">Sertakan link ke CV PDF jika ingin menyediakan unduhan.</p>
+          <!-- EDIT HERE: Ganti href ke file CV -->
+          <a class="cta-download" href="#" style="display:inline-block;margin-top:10px">Download CV</a>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <div class="muted">© <!-- EDIT HERE: Tahun dan nama -->2025 — Nama Lengkap Kamu. Semua hak cipta.</div>
+    </footer>
+  </div>
+
+  <script>
+    // Smooth scroll for internal links
+    (function(){
+      const links = document.querySelectorAll('a[href^="#"]');
+      for(const a of links){
+        a.addEventListener('click', function(e){
+          e.preventDefault();
+          const id = this.getAttribute('href');
+          if(!id || id === '#') return;
+          const el = document.querySelector(id);
+          if(!el) return;
+          window.scrollTo({
+            top: el.getBoundingClientRect().top + window.pageYOffset - 80,
+            behavior: 'smooth'
+          });
+        });
+      }
+    })();
+
+    // Animate skill bars when in view
+    (function(){
+      const bars = document.querySelectorAll('.bar');
+      function animateBars(){
+        bars.forEach(b=>{
+          const val = parseInt(b.getAttribute('data-skill') || 0, 10);
+          b.style.width = val + '%';
+        });
+      }
+
+      // Intersection Observer to animate once when visible
+      if('IntersectionObserver' in window){
+        const obs = new IntersectionObserver(entries=>{
+          entries.forEach(entry=>{
+            if(entry.isIntersecting){
+              animateBars();
+              obs.disconnect();
+            }
+          });
+        }, {threshold:0.25});
+        const target = document.querySelector('#skills');
+        if(target) obs.observe(target);
+        else animateBars();
+      } else {
+        // fallback
+        animateBars();
+      }
+    })();
+
+    // Tiny accessibility: focus outlines for keyboard users only
+    (function(){
+      function handleFirstTab(e){
+        if(e.key === 'Tab'){
+          document.documentElement.classList.add('show-focus-outlines');
+          window.removeEventListener('keydown', handleFirstTab);
+        }
+      }
+      window.addEventListener('keydown', handleFirstTab);
+    })();
+  </script>
+</body>
+</html>
