@@ -3,940 +3,482 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Portfolio - [Nama Kamu]</title>
-
-  <!-- Google Font (ganti jika mau) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome (ikon) -->
-  <script src="https://kit.fontawesome.com/your_kit_id.js" crossorigin="anonymous"></script><!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio - [Nama Kamu]</title>
+  <title>Portfolio — [Nama Kamu]</title>
 
   <!-- Font & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-  <style>
-    :root {
-      --primary: #007BFF;
-      --gradient: linear-gradient(135deg, #007BFF, #00C6FF);
-      --bg: #f7f9fb;
-      --text: #1a1a1a;
-      --muted: #6c757d;
-    }
-
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "Poppins", sans-serif;
-      background: var(--bg);
-      margin: 0;
-      color: var(--text);
-    }
-
-    /* Navbar */
-    header {
-      position: sticky;
-      top: 0;
-      background: white;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      transition: all 0.3s ease;
-    }
-
-    header h1 {
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-size: 1.4rem;
-      font-weight: 700;
-    }
-
-    nav a {
-      margin-left: 1.2rem;
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 500;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: var(--primary);
-    }
-
-    /* Hero */
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      padding: 4rem 2rem;
-      background: var(--gradient);
-      color: white;
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    .hero-text {
-      max-width: 550px;
-    }
-
-    .hero-text h2 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-text p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-
-    .btn {
-      background: white;
-      color: var(--primary);
-      padding: 0.7rem 1.4rem;
-      border-radius: 6px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background: #e2e6ea;
-      transform: scale(1.05);
-    }
-
-    .hero-img {
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 5rem;
-      backdrop-filter: blur(8px);
-      animation: float 3s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    /* Sections */
-    section {
-      padding: 4rem 2rem;
-      max-width: 1000px;
-      margin: auto;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    section h3 {
-      text-align: center;
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      color: var(--primary);
-    }
-
-    section p, li {
-      color: var(--muted);
-    }
-
-    /* Skills */
-    .skills {
-      display: grid;
-      gap: 1rem;
-      max-width: 600px;
-      margin: 2rem auto;
-    }
-
-    .skill {
-      background: white;
-      border-radius: 8px;
-      padding: 1rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-
-    .skill .bar {
-      height: 8px;
-      background: var(--gradient);
-      width: 0%;
-      border-radius: 8px;
-      transition: width 1s ease-in-out;
-    }
-
-    /* Projects */
-    .projects {
-      display: grid;
-      gap: 1.5rem;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-
-    .project {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
-    }
-
-    .project:hover {
-      transform: translateY(-8px);
-    }
-
-    .project img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-
-    .project-content {
-      padding: 1rem;
-    }
-
-    .project-content h4 {
-      margin: 0;
-      color: var(--primary);
-    }
-
-    .project-content p {
-      font-size: 0.9rem;
-    }
-
-    /* Certificates */
-    .certificates {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-
-    .cert {
-      background: white;
-      padding: 1rem 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-
-    /* Contact */
-    .contact {
-      text-align: center;
-    }
-
-    .contact p {
-      margin: 0.3rem 0;
-    }
-
-    .socials a {
-      color: var(--primary);
-      margin: 0 0.5rem;
-      font-size: 1.5rem;
-      transition: transform 0.3s;
-    }
-
-    .socials a:hover {
-      transform: scale(1.2);
-      color: #00C6FF;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: white;
-      box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    @keyframes fadeIn {
-      from {opacity:0; transform:translateY(20px);}
-      to {opacity:1; transform:translateY(0);}
-    }
-
-    @media (max-width: 700px) {
-      .hero {
-        flex-direction: column-reverse;
-        text-align: center;
-      }
-      .hero-img {margin-bottom: 1.5rem;}
-    }
-  </style>
-</head>
-<body>
-
-  <!-- NAVBAR -->
-  <header>
-    <h1><!-- EDIT -->Portofolio [Nama Kamu]</h1>
-    <nav>
-      <a href="#about">Tentang</a>
-      <a href="#visi">Visi</a>
-      <a href="#edu">Pendidikan</a>
-      <a href="#skills">Keahlian</a>
-      <a href="#projects">Proyek</a>
-      <a href="#cert">Sertifikat</a>
-      <a href="#contact">Kontak</a>
-    </nav>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero" id="about">
-    <div class="hero-text">
-      <h2>Halo, Saya [Nama Kamu]</h2>
-      <p><!-- EDIT -->Saya seorang pengembang IT yang berfokus pada pembuatan aplikasi web modern dan interaktif. Saya suka belajar teknologi baru dan mengerjakan proyek keren!</p>
-      <a href="#contact" class="btn">Hubungi Saya</a>
-    </div>
-    <div class="hero-img"><i class="fa-solid fa-code"></i></div>
-  </section>
-
-  <!-- VISI MISI -->
-  <section id="visi">
-    <h3>Visi & Misi</h3>
-    <p><strong>Visi:</strong> Menjadi developer yang berkontribusi menciptakan solusi digital bermanfaat.</p>
-    <ul>
-      <li>Meningkatkan kemampuan teknologi setiap hari.</li>
-      <li>Membangun proyek open-source yang membantu banyak orang.</li>
-      <li>Berkarier di dunia software development profesional.</li>
-    </ul>
-  </section>
-
-  <!-- PENDIDIKAN -->
-  <section id="edu">
-    <h3>Latar Belakang Pendidikan</h3>
-    <p><strong><!-- EDIT -->Universitas XYZ</strong> — Teknik Informatika (2019–2023)</p>
-    <p>Fokus pada pengembangan web, keamanan siber, dan cloud computing.</p>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <h3>Keahlian</h3>
-    <div class="skills">
-      <div class="skill"><strong>HTML</strong><div class="bar" data-skill="95"></div></div>
-      <div class="skill"><strong>CSS</strong><div class="bar" data-skill="90"></div></div>
-      <div class="skill"><strong>JavaScript</strong><div class="bar" data-skill="85"></div></div>
-      <div class="skill"><strong>React</strong><div class="bar" data-skill="80"></div></div>
-      <div class="skill"><strong>Python</strong><div class="bar" data-skill="75"></div></div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h3>Project Portofolio</h3>
-    <div class="projects">
-      <div class="project">
-        <img src="https://via.placeholder.com/400x200" alt="Project 1">
-        <div class="project-content">
-          <h4>Website Sistem Akademik</h4>
-          <p>Aplikasi web untuk mengelola data mahasiswa, nilai, dan jadwal. Dibangun dengan Node.js dan MySQL.</p>
-          <a href="#" class="btn" style="margin-top:8px;">Lihat di GitHub</a>
-        </div>
-      </div>
-      <div class="project">
-        <img src="https://via.placeholder.com/400x200" alt="Project 2">
-        <div class="project-content">
-          <h4>Aplikasi To-Do List PWA</h4>
-          <p>Progressive Web App untuk mencatat tugas harian dengan notifikasi real-time menggunakan Firebase.</p>
-          <a href="#" class="btn" style="margin-top:8px;">Lihat di GitHub</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CERTIFICATES -->
-  <section id="cert">
-    <h3>Sertifikat</h3>
-    <div class="certificates">
-      <div class="cert">Front-End Developer — Dicoding (2023)</div>
-      <div class="cert">React JS — Udemy (2024)</div>
-      <div class="cert">Cloud Computing — Google (2024)</div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="contact">
-    <h3>Kontak Saya</h3>
-    <p><i class="fa-solid fa-phone"></i> <!-- EDIT --> +62 812-3456-789</p>
-    <p><i class="fa-solid fa-envelope"></i> <!-- EDIT --> email@domain.com</p>
-    <p><i class="fa-solid fa-location-dot"></i> <!-- EDIT --> Kota, Indonesia</p>
-    <div class="socials">
-      <a href="#"><i class="fa-brands fa-github"></i></a>
-      <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-      <a href="#"><i class="fa-brands fa-instagram"></i></a>
-    </div>
-  </section>
-
-  <footer>
-    © 2025 [Nama Kamu] — Dibuat dengan 💙 dan semangat IT.
-  </footer>
-
-  <script>
-    // Section fade-in effect
-    const sections = document.querySelectorAll("section");
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
-      });
-    }, { threshold: 0.2 });
-    sections.forEach(sec => observer.observe(sec));
-
-    // Animate skill bars
-    const bars = document.querySelectorAll(".bar");
-    const animateBars = () => {
-      bars.forEach(b => {
-        b.style.width = b.dataset.skill + "%";
-      });
-    };
-    const skillObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateBars();
-          skillObserver.disconnect();
-        }
-      });
-    }, { threshold: 0.3 });
-    skillObserver.observe(document.querySelector("#skills"));
-  </script>
-</body>
-</html>
-
-  <!-- Kalau belum punya kit, bisa ganti dengan: 
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /> 
-       (tapi kit memberi versi terbaru) -->
-
-  <meta name="theme-color" content="#0b61d3">
+  <meta name="theme-color" content="#0f1724">
 
   <style>
     :root{
-      --blue:#0b61d3;
-      --light:#f5f7fb;
-      --muted:#6b7280;
-      --card:#ffffff;
-      --glass: rgba(255,255,255,0.6);
-      --radius:12px;
-      --max-width:1100px;
-      --transition:300ms cubic-bezier(.2,.9,.3,1);
+      --bg1: #070417;       /* very dark */
+      --bg2: #0f1530;       /* deep indigo */
+      --accent: #8b5cf6;    /* soft purple */
+      --accent-2: #06b6d4;  /* teal */
+      --muted: #9aa3bf;
+      --card: rgba(255,255,255,0.03);
+      --glass: rgba(255,255,255,0.04);
+      --radius: 14px;
+      --max-width: 1100px;
+      --transition: 420ms cubic-bezier(.2,.9,.3,1);
+      --glow: 0 8px 30px rgba(139,92,246,0.12);
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background:linear-gradient(180deg, #f7f9fc 0%, #eef3fb 100%);
-      color:#0f1724;
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(139,92,246,0.08), transparent),
+                  radial-gradient(900px 500px at 85% 80%, rgba(6,182,212,0.06), transparent),
+                  linear-gradient(180deg,var(--bg1),var(--bg2));
+      color:#e6eef8;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
-      line-height:1.5;
-      padding-bottom:48px;
+      overflow-y: auto;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    /* Layout */
-    .container{
+    /* Starfield (CSS) */
+    .sky {
+      position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;
+      background: transparent;
+    }
+    .stars, .stars2, .stars3 {
+      position:absolute; inset: -20% -20%  -20% -20%;
+      background-repeat: repeat;
+      background-size: contain;
+      opacity:0.6;
+      animation: drift 60s linear infinite;
+      filter: drop-shadow(0 0 6px rgba(255,255,255,0.03));
+    }
+    .stars { background-image: radial-gradient(white 1px, rgba(255,255,255,0.05) 1.2px); background-size: 4px 4px; opacity:0.8; transform:scale(1);}
+    .stars2 { background-image: radial-gradient(white 1px, rgba(255,255,255,0.04) 1.2px); background-size: 6px 6px; animation-duration: 90s; opacity:0.55; transform:scale(1.2);}
+    .stars3 { background-image: radial-gradient(white 1px, rgba(255,255,255,0.03) 1.2px); background-size: 10px 10px; animation-duration: 140s; opacity:0.35; transform:scale(1.5);}
+
+    @keyframes drift{
+      from { transform: translateY(0) translateX(0); }
+      to { transform: translateY(-120px) translateX(-40px); }
+    }
+
+    /* subtle nebula blobs */
+    .nebula {
+      position:fixed; inset:0; z-index:0; pointer-events:none;
+      background:
+        radial-gradient(400px 220px at 10% 20%, rgba(139,92,246,0.12), transparent),
+        radial-gradient(380px 200px at 85% 80%, rgba(6,182,212,0.08), transparent);
+      mix-blend-mode: screen;
+    }
+
+    /* Layout container */
+    .wrap{
+      position:relative;
+      z-index:10;
       max-width:var(--max-width);
-      margin:32px auto;
-      padding:24px;
-    }
-
-    header{
-      position:sticky;
-      top:12px;
-      z-index:40;
-      backdrop-filter: blur(6px);
-      background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.55));
-      border-radius:14px;
-      box-shadow:0 6px 18px rgba(11,97,211,0.08);
-      padding:8px 14px;
-      display:flex;
-      align-items:center;
-      gap:18px;
-    }
-
-    .brand{
-      display:flex;
-      gap:12px;
-      align-items:center;
-    }
-    .logo{
-      width:48px;height:48px;border-radius:10px;
-      display:grid;place-items:center;
-      background:linear-gradient(135deg,var(--blue),#0f4fc0);
-      color:white;font-weight:700;
-      box-shadow:0 6px 18px rgba(11,97,211,0.18);
-      flex-shrink:0;
-    }
-    .brand h1{font-size:16px;margin:0}
-    .brand p{margin:0;font-size:12px;color:var(--muted)}
-
-    nav{margin-left:auto}
-    .nav-list{
-      display:flex;gap:12px;align-items:center;
-      list-style:none;margin:0;padding:0;
-    }
-    .nav-list a{
-      text-decoration:none;color:var(--blue);
-      padding:8px 12px;border-radius:10px;font-weight:600;
-      transition:all var(--transition);
-    }
-    .nav-list a:hover{background:rgba(11,97,211,0.06);transform:translateY(-3px)}
-    .cta-download{
-      background:linear-gradient(90deg,var(--blue) 0%, #0f4fc0 100%);
-      color:white;padding:8px 12px;border-radius:10px;font-weight:600;
-      box-shadow:0 8px 24px rgba(11,97,211,0.12);
-    }
-
-    /* Intro */
-    .hero{
+      margin:36px auto;
+      padding:28px;
       display:grid;
-      grid-template-columns: 1fr 360px;
-      gap:28px;
-      align-items:center;
-      margin-top:22px;
+      grid-template-columns: 1fr 340px;
+      gap:20px;
     }
+
+    /* Header */
+    header{
+      grid-column:1/-1;
+      display:flex;align-items:center;gap:18px;justify-content:space-between;
+      padding:12px 18px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      box-shadow: var(--glow);
+      border: 1px solid rgba(255,255,255,0.03);
+      backdrop-filter: blur(6px);
+    }
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{
+      width:56px;height:56px;border-radius:12px;display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      color:white;font-weight:700;font-size:18px;box-shadow:0 8px 30px rgba(139,92,246,0.14);
+    }
+    .brand h1{margin:0;font-size:16px}
+    .brand p{margin:0;color:var(--muted);font-size:12px}
+    nav{display:flex;gap:10px;align-items:center}
+    nav a{color:rgba(230,238,248,0.9);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600;font-size:14px;transition:all var(--transition)}
+    nav a:hover{transform:translateY(-4px); background: rgba(255,255,255,0.02)}
+    .cta{background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:8px 14px;border-radius:12px;color:#070417;font-weight:700;box-shadow:0 8px 30px rgba(6,182,212,0.08)}
+
+    /* main left column cards */
     .card{
       background:var(--card);
-      border-radius:var(--radius);
-      padding:20px;
-      box-shadow:0 8px 30px rgba(16,24,40,0.06);
+      border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 10px 30px rgba(2,6,23,0.5);
+      transition: transform var(--transition), box-shadow var(--transition);
+      backdrop-filter: blur(6px);
     }
-    .intro h2{margin:0 0 6px 0;font-size:26px}
-    .intro p.lead{margin:0;color:var(--muted)}
-    .profile{
-      display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center;
-      padding:18px;
+    .card:hover{ transform: translateY(-6px); box-shadow: 0 20px 40px rgba(2,6,23,0.6); }
+
+    /* HERO */
+    .hero{
+      display:flex;gap:18px;align-items:center;
+      padding:22px;border-radius:12px;overflow:hidden;
+      background: linear-gradient(160deg, rgba(139,92,246,0.08), rgba(6,182,212,0.03));
     }
+    .hero-left{flex:1}
+    .hero h2{margin:0 0 8px 0;font-size:26px}
+    .hero p.lead{margin:0;color:var(--muted)}
+    .badge{display:inline-block;margin-top:12px;padding:8px 12px;border-radius:999px;background:linear-gradient(90deg, rgba(139,92,246,0.12), rgba(6,182,212,0.08));color:var(--accent);font-weight:700}
+
+    .hero-right{width:160px;height:160px;border-radius:16px;background:linear-gradient(135deg,rgba(255,255,255,0.03),transparent);display:grid;place-items:center}
     .avatar{
-      width:140px;height:140px;border-radius:14px;display:grid;place-items:center;
-      font-size:36px;color:white;background:linear-gradient(135deg,#1e90ff,#0b61d3);
-      box-shadow:0 10px 30px rgba(11,97,211,0.12);
+      width:120px;height:120px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:grid;place-items:center;font-size:36px;color:white;font-weight:700;box-shadow:0 12px 30px rgba(139,92,246,0.14);
+      transform: translateY(0); animation: float 4s ease-in-out infinite;
     }
-    .small-info{font-size:14px;color:var(--muted)}
-    .socials{display:flex;gap:10px;justify-content:center}
-    .socials a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:8px;background:var(--light);text-decoration:none;color:var(--blue)}
+    @keyframes float { 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-10px);} }
 
-    /* Sections grid */
-    .sections{
-      margin-top:20px;
-      display:grid;
-      grid-template-columns:1fr 360px;
-      gap:20px;
-      align-items:start;
+    /* layout grid of sections */
+    .main-col{display:grid;grid-auto-rows:min-content;gap:16px}
+    .side-col{display:flex;flex-direction:column;gap:16px;align-items:stretch}
+
+    /* Section titles */
+    .section-title{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+    .section-title h3{margin:0;color:var(--accent);font-size:18px}
+
+    /* About */
+    .about p{color:var(--muted);margin:6px 0 0 0}
+
+    /* Visi & Misi */
+    .visi-misi{display:flex;gap:12px;flex-wrap:wrap}
+    .visi-misi > div{flex:1;min-width:220px}
+
+    /* Education */
+    .edu-item{margin-bottom:8px;color:var(--muted)}
+    .edu-item strong{color:#fff}
+
+    /* Projects */
+    .projects{display:grid;gap:12px}
+    .proj{
+      display:flex;gap:12px;align-items:center;padding:10px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
     }
+    .proj .thumb{width:110px;height:70px;border-radius:8px;overflow:hidden;flex-shrink:0;background:#0b1220;display:grid;place-items:center}
+    .proj h4{margin:0 0 6px 0;font-size:16px}
+    .proj p{margin:0;color:var(--muted);font-size:13px}
+    .proj a{color:var(--accent);text-decoration:none;font-weight:700}
 
-    section{scroll-margin-top:90px}
-
-    /* Info text */
-    .section-title{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-    .section-title h3{margin:0;font-size:18px}
-    .muted{color:var(--muted);font-size:14px}
-
-    /* Skill bars */
+    /* Skills */
     .skills{display:grid;gap:10px}
-    .skill{
-      display:flex;align-items:center;gap:12px;
-    }
-    .skill .label{width:120px;font-weight:600}
-    .bar-wrap{flex:1;background:linear-gradient(180deg,#eef3fb,#f8fafc);padding:8px;border-radius:999px}
-    .bar{height:12px;border-radius:999px;background:linear-gradient(90deg,var(--blue),#2b7be6);width:0%;transition:width 900ms cubic-bezier(.2,.9,.3,1)}
+    .skill{display:flex;align-items:center;gap:12px}
+    .skill .label{width:110px;font-weight:700;color:#eaf2ff}
+    .bar-wrap{flex:1;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:8px;border-radius:999px}
+    .bar{height:10px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0%;transition:width 900ms cubic-bezier(.2,.9,.3,1);box-shadow:0 6px 18px rgba(139,92,246,0.12)}
 
-    /* Project card */
-    .project{
-      display:flex;gap:14px;align-items:center;padding:12px;border-radius:10px;background:linear-gradient(180deg,#ffffff,#fbfdff);
-      box-shadow:0 8px 20px rgba(12,20,40,0.04);
-    }
-    .project .preview{
-      flex-shrink:0;width:120px;height:80px;border-radius:8px;display:grid;place-items:center;
-      overflow:hidden;background:linear-gradient(135deg,#eef7ff,#e6f0ff);
-    }
-    .project h4{margin:0}
-    .project p{margin:6px 0;color:var(--muted);font-size:14px}
-    .project .links{display:flex;gap:8px;align-items:center}
-
-    /* Certificates list */
+    /* Certificates (with images) */
     .cert-list{display:flex;flex-wrap:wrap;gap:10px}
-    .cert{background:var(--light);padding:10px;border-radius:8px;font-size:13px}
+    .cert{
+      width:120px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);
+    }
+    .cert img{width:100%;height:72px;object-fit:cover;display:block}
+    .cert .meta{padding:8px;font-size:13px;color:var(--muted)}
+    .cert .meta strong{color:#fff;font-size:13px}
 
-    /* Contact card */
-    .contact-list{display:flex;flex-direction:column;gap:10px}
-    .contact-item{display:flex;gap:12px;align-items:center}
-    .contact-item i{width:36px;height:36px;display:grid;place-items:center;border-radius:8px;background:rgba(11,97,211,0.08);color:var(--blue)}
+    /* Contact */
+    .contact .row{display:flex;gap:10px;align-items:center;margin-bottom:8px}
+    .contact .icon{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);color:var(--accent);font-weight:700}
+    .contact a{color:var(--accent);text-decoration:none;font-weight:700}
 
-    footer{text-align:center;color:var(--muted);margin-top:28px;font-size:14px}
+    footer{grid-column:1/-1;text-align:center;color:var(--muted);margin-top:18px;padding:16px;font-size:13px}
 
-    /* Responsive */
-    @media (max-width:980px){
-      .hero,.sections{grid-template-columns:1fr;}
-      nav{display:none}
-      header{padding:10px}
+    /* responsive */
+    @media (max-width:1000px){
+      .wrap{grid-template-columns:1fr; padding:18px}
+      .side-col{order:2}
     }
 
-    /* small helper */
-    .muted-block{color:var(--muted);font-size:14px}
-    a.link{color:var(--blue);text-decoration:none;font-weight:600}
-    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(11,97,211,0.06);color:var(--blue);font-weight:600;font-size:13px}
+    /* small focus styles for accessibility */
+    a:focus{outline:2px dashed rgba(139,92,246,0.3);outline-offset:4px}
+
   </style>
 </head>
 <body>
 
-  <!--
-    EDITABLE SINGLE-FILE PORTFOLIO
-    - Ganti teks antara <!-- EDIT HERE --> di tiap section
-    - Ubah link sosial / github di bagian kontak
-    - Untuk menambah project/sertifikat, copy block project / cert dan modifikasi isinya
-  -->
+  <!-- Star background layers -->
+  <div class="sky" aria-hidden="true">
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+    <div class="nebula"></div>
+  </div>
 
-  <div class="container">
-    <header class="card" role="banner" aria-label="Header">
-      <div class="brand" aria-hidden="false">
-        <div class="logo">IT</div>
+  <div class="wrap" role="main">
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <div class="logo">GAL</div>
         <div>
-          <h1><!-- EDIT HERE: Nama Lengkap -->Nama Lengkap Kamu</h1>
-          <p><!-- EDIT HERE: Tagline/jurusan -->Mahasiswa/Alumni IT — Passionate Developer</p>
+          <h1><!-- EDIT HERE: Nama Lengkap -->Nama Kamu</h1>
+          <p><!-- EDIT HERE: Tagline/jurusan -->Developer | Anak IT — code & cosmos</p>
         </div>
       </div>
 
-      <nav role="navigation" aria-label="Main navigation">
-        <ul class="nav-list">
-          <li><a href="#about">Tentang</a></li>
-          <li><a href="#visi">Visi & Misi</a></li>
-          <li><a href="#education">Pendidikan</a></li>
-          <li><a href="#projects">Proyek</a></li>
-          <li><a href="#skills">Keahlian</a></li>
-          <li><a href="#certs">Sertifikat</a></li>
-          <li><a href="#contact" class="cta-download">Kontak</a></li>
-        </ul>
+      <nav aria-label="Main nav">
+        <a href="#about">About</a>
+        <a href="#visi">Visi</a>
+        <a href="#edu">Pendidikan</a>
+        <a href="#projects">Proyek</a>
+        <a href="#skills">Keahlian</a>
+        <a href="#certs">Sertifikat</a>
+        <a href="#contact" class="cta">Kontak</a>
       </nav>
     </header>
 
-    <!-- HERO / INTRO -->
-    <main class="hero" role="main">
-      <div class="card intro" id="about">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+    <!-- left column -->
+    <div class="main-col">
+      <!-- HERO / ABOUT -->
+      <section id="about" class="card hero" aria-labelledby="aboutTitle">
+        <div class="hero-left">
+          <h2 id="aboutTitle"><!-- EDIT HERE: Perkenalan singkat -->Halo! Aku [Nama Kamu]</h2>
+          <p class="lead"><!-- EDIT HERE: Deskripsi singkat -->
+            Aku anak IT yang suka membangun aplikasi web & tools yang bikin hidup lebih mudah. Minatku: web dev, cloud, dan UX yang friendly.
+          </p>
+          <div style="margin-top:12px;">
+            <span class="badge">Open to collaborate</span>
+          </div>
+        </div>
+
+        <div class="hero-right" aria-hidden="true">
+          <div class="avatar"><!-- EDIT: inisial -->NK</div>
+        </div>
+      </section>
+
+      <!-- Visi & Misi -->
+      <section id="visi" class="card" aria-labelledby="visiTitle">
+        <div class="section-title"><h3 id="visiTitle">Visi & Misi</h3></div>
+        <div class="visi-misi">
           <div>
-            <h2><!-- EDIT HERE: Perkenalan singkat -->Halo, Saya [Nama Kamu]</h2>
-            <p class="lead"><!-- EDIT HERE: Deskripsi singkat (1-2 kalimat) -->
-              Saya seorang developer / mahasiswa jurusan IT yang fokus pada pembuatan aplikasi web dan solusi perangkat lunak. Saya suka belajar teknologi baru dan membangun proyek nyata.
+            <strong>Visi</strong>
+            <p class="muted"> <!-- EDIT HERE: visi -->
+              Menjadi developer yang menciptakan solusi teknologi human-centered dan berdampak sosial.
             </p>
           </div>
-          <div class="pill">Developer — IT</div>
-        </div>
-
-        <hr style="margin:18px 0;border:none;border-top:1px solid #eef3fb">
-
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <div style="flex:1;min-width:220px;">
-            <h4 class="section-title"><span style="font-size:18px">🔎</span><span style="margin-left:8px">Profil Singkat</span></h4>
-            <p class="muted-block"><strong><!-- EDIT HERE: Nama Lengkap -->Nama Lengkap Kamu</strong><br>
-            <!-- EDIT HERE: Jurusan -->Jurusan: Teknik Informatika / Sistem Informasi<br>
-            <!-- EDIT HERE: Passion -->Passion: Web Development, Backend, DevOps</p>
-          </div>
-
-          <div style="min-width:180px;">
-            <h4 class="section-title"><span style="font-size:18px">📬</span><span style="margin-left:8px">Info Singkat</span></h4>
-            <p class="muted-block">Lokasi: <!-- EDIT HERE: Alamat/kota -->Kota, Negara<br>
-            Email: <a class="link" href="mailto:email@domain.com"><!-- EDIT HERE: Email -->email@domain.com</a><br>
-            Telepon: <a class="link" href="tel:+628123456789"><!-- EDIT HERE: No HP -->+62 812-3456-789</a></p>
-          </div>
-        </div>
-      </div>
-
-      <aside class="card profile" aria-label="Profile card">
-        <div class="avatar" aria-hidden="true">NK</div>
-        <div>
-          <div style="font-weight:700;font-size:16px"><!-- EDIT HERE: Nama Lengkap -->Nama Lengkap Kamu</div>
-          <div class="small-info"><!-- EDIT HERE: Jurusan & tahun -->Teknik Informatika — Angkatan 20XX</div>
-        </div>
-
-        <div class="socials">
-          <!-- EDIT HERE: Ganti link sosialmu -->
-          <a href="https://github.com/username" target="_blank" title="GitHub" rel="noopener"><i class="fa-brands fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/username" target="_blank" title="LinkedIn" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="https://instagram.com/username" target="_blank" title="Instagram" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
-        </div>
-
-        <div style="width:100%;margin-top:8px">
-          <a class="link" href="#projects">Lihat Proyek →</a>
-        </div>
-      </aside>
-    </main>
-
-    <!-- MAIN SECTIONS -->
-    <div class="sections">
-      <div>
-        <!-- Visi & Misi -->
-        <section id="visi" class="card">
-          <div class="section-title">
-            <h3>Visi & Misi</h3>
-          </div>
-
-          <div style="display:flex;gap:18px;flex-wrap:wrap;">
-            <div style="flex:1;min-width:220px">
-              <h4 style="margin-top:0">Visi</h4>
-              <p class="muted"> <!-- EDIT HERE: Visi singkat -->
-                Menjadi profesional IT yang handal dalam merancang dan mengimplementasikan solusi perangkat lunak yang berdampak bagi masyarakat dan bisnis.
-              </p>
-            </div>
-            <div style="flex:1;min-width:220px">
-              <h4 style="margin-top:0">Misi</h4>
-              <ul class="muted">
-                <!-- EDIT HERE: Misi (bullet) -->
-                <li>Terus belajar dan menguasai teknologi terkini.</li>
-                <li>Membangun proyek yang berguna dan dapat dipakai nyata.</li>
-                <li>Berkolaborasi dalam tim untuk menyelesaikan masalah kompleks.</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <!-- Pendidikan -->
-        <section id="education" class="card" style="margin-top:16px">
-          <div class="section-title">
-            <h3>Pendidikan</h3>
-          </div>
-
           <div>
-            <!-- EDIT HERE: Riwayat pendidikan; copy block untuk menambah -->
-            <div style="margin-bottom:12px">
-              <strong>Universitas XYZ</strong> — S1 Teknik Informatika <span style="color:var(--muted)"> (2019 — 2023)</span>
-              <p class="muted">IPK: 3.XX — Fokus pada pemrograman web, basis data, dan keamanan.</p>
-            </div>
-
-            <div style="margin-bottom:6px">
-              <strong>SMK ABC</strong> — Teknik Komputer Jaringan <span style="color:var(--muted)"> (2016 — 2019)</span>
-              <p class="muted">Pelajaran: Jaringan, Pemrograman Dasar, Sistem Operasi</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Pengalaman Proyek -->
-        <section id="projects" class="card" style="margin-top:16px">
-          <div class="section-title">
-            <h3>Pengalaman Proyek</h3>
-          </div>
-
-          <!-- EDIT HERE: Project Experience blocks -->
-          <div style="display:grid;gap:12px">
-            <div class="project">
-              <div class="preview" aria-hidden="true">
-                <!-- simple inline SVG preview (ganti dengan <img src="..."> jika punya gambar) -->
-                <svg width="120" height="80" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="120" height="80" fill="#eef7ff"/>
-                  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="#0b61d3">Preview</text>
-                </svg>
-              </div>
-              <div style="flex:1">
-                <h4><!-- EDIT HERE: Judul Proyek -->Sistem Informasi Akademik</h4>
-                <p><!-- EDIT HERE: Deskripsi singkat proyek -->
-                  Aplikasi web untuk manajemen data mahasiswa, pendaftaran, dan laporan akademik. Dibangun dengan HTML/CSS/JS dan backend menggunakan Node.js.
-                </p>
-                <div class="links">
-                  <a class="link" href="https://github.com/username/project-1" target="_blank" rel="noopener">GitHub</a>
-                  <span style="color:var(--muted)">•</span>
-                  <span class="muted">Role: Fullstack Developer</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="project">
-              <div class="preview" aria-hidden="true">
-                <svg width="120" height="80" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="120" height="80" fill="#eef7ff"/>
-                  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="12" fill="#0b61d3">Preview</text>
-                </svg>
-              </div>
-              <div style="flex:1">
-                <h4><!-- EDIT HERE: Judul Proyek 2 -->Aplikasi Mobile (PWA)</h4>
-                <p><!-- EDIT HERE: Deskripsi singkat proyek 2 -->
-                  Progressive Web App untuk catatan dan jadwal tugas, dilengkapi notifikasi dan sinkronisasi ke cloud. Menggunakan React + Firebase.
-                </p>
-                <div class="links">
-                  <a class="link" href="https://github.com/username/project-2" target="_blank" rel="noopener">GitHub</a>
-                  <span style="color:var(--muted)">•</span>
-                  <span class="muted">Role: Frontend / Integrasi</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Keahlian -->
-        <section id="skills" class="card" style="margin-top:16px">
-          <div class="section-title">
-            <h3>Keahlian</h3>
-          </div>
-
-          <div class="skills">
-            <!-- EDIT HERE: ubah data-skill dan teks label untuk menyesuaikan -->
-            <div class="skill">
-              <div class="label">HTML</div>
-              <div class="bar-wrap"><div class="bar" data-skill="95"></div></div>
-            </div>
-            <div class="skill">
-              <div class="label">CSS</div>
-              <div class="bar-wrap"><div class="bar" data-skill="90"></div></div>
-            </div>
-            <div class="skill">
-              <div class="label">JavaScript</div>
-              <div class="bar-wrap"><div class="bar" data-skill="88"></div></div>
-            </div>
-            <div class="skill">
-              <div class="label">React</div>
-              <div class="bar-wrap"><div class="bar" data-skill="82"></div></div>
-            </div>
-            <div class="skill">
-              <div class="label">Python</div>
-              <div class="bar-wrap"><div class="bar" data-skill="75"></div></div>
-            </div>
-            <div class="skill">
-              <div class="label">Java</div>
-              <div class="bar-wrap"><div class="bar" data-skill="65"></div></div>
-            </div>
-            <div class="skill">
-              <div class="label">UI/UX</div>
-              <div class="bar-wrap"><div class="bar" data-skill="60"></div></div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Sertifikat -->
-        <section id="certs" class="card" style="margin-top:16px">
-          <div class="section-title">
-            <h3>Sertifikat</h3>
-          </div>
-
-          <div class="cert-list">
-            <!-- EDIT HERE: ganti nama sertifikat / link -->
-            <div class="cert"><strong>Certified Web Dev</strong><div class="muted"> — Platform XYZ (2024)</div></div>
-            <div class="cert"><strong>React Fundamentals</strong><div class="muted"> — Bootcamp ABC (2023)</div></div>
-            <div class="cert"><strong>Cloud Basics</strong><div class="muted"> — Provider Cloud (2022)</div></div>
-          </div>
-        </section>
-      </div>
-
-      <!-- SIDEBAR: kontak singkat & CTA -->
-      <aside>
-        <div class="card">
-          <div class="section-title">
-            <h3>Kontak Saya</h3>
-          </div>
-
-          <div class="contact-list">
-            <div class="contact-item">
-              <i class="fa-solid fa-phone"></i>
-              <div><strong><!-- EDIT HERE: No HP -->+62 812-3456-789</strong><div class="muted">Telepon / WhatsApp</div></div>
-            </div>
-
-            <div class="contact-item">
-              <i class="fa-solid fa-envelope"></i>
-              <div><strong><!-- EDIT HERE: Email -->email@domain.com</strong><div class="muted">Email</div></div>
-            </div>
-
-            <div class="contact-item">
-              <i class="fa-brands fa-github"></i>
-              <div><strong><a class="link" href="https://github.com/username" target="_blank" rel="noopener"><!-- EDIT HERE: GitHub -->github.com/username</a></strong><div class="muted">Repos & kode</div></div>
-            </div>
-
-            <div class="contact-item">
-              <i class="fa-brands fa-linkedin"></i>
-              <div><strong><a class="link" href="https://linkedin.com/in/username" target="_blank" rel="noopener"><!-- EDIT HERE: LinkedIn -->linkedin.com/in/username</a></strong><div class="muted">Profil profesional</div></div>
-            </div>
-
-            <div class="contact-item">
-              <i class="fa-solid fa-location-dot"></i>
-              <div><strong><!-- EDIT HERE: Alamat -->Kota, Provinsi</strong><div class="muted">Alamat</div></div>
-            </div>
-          </div>
-
-          <hr style="margin:12px 0;border:none;border-top:1px solid #f0f4fb">
-
-          <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <a class="pill" href="#projects">Lihat Proyek</a>
-            <a class="pill" href="mailto:email@domain.com">Hubungi Saya</a>
+            <strong>Misi</strong>
+            <ul class="muted">
+              <li>Belajar & eksperimen dengan teknologi baru setiap hari.</li>
+              <li>Membangun project nyata dengan dokumentasi rapi.</li>
+              <li>Berkontribusi di open-source dan komunitas.</li>
+            </ul>
           </div>
         </div>
+      </section>
 
-        <div class="card" style="margin-top:12px;text-align:center">
-          <h4 style="margin:8px 0 6px 0">Download CV</h4>
-          <p class="muted">Sertakan link ke CV PDF jika ingin menyediakan unduhan.</p>
-          <!-- EDIT HERE: Ganti href ke file CV -->
-          <a class="cta-download" href="#" style="display:inline-block;margin-top:10px">Download CV</a>
+      <!-- Pendidikan -->
+      <section id="edu" class="card" aria-labelledby="eduTitle">
+        <div class="section-title"><h3 id="eduTitle">Latar Belakang Pendidikan</h3></div>
+        <div class="edu-item">
+          <strong><!-- EDIT: Nama institusi --></strong> Universitas Contoh — S1 Teknik Informatika <span style="color:var(--muted)"> (2019–2023)</span>
+          <p class="muted">Fokus: Web Dev, Basis Data, Cloud Basics</p>
         </div>
-      </aside>
+        <div class="edu-item">
+          <strong><!-- EDIT: SMK / SMA -->SMK Teknologi — Teknik Komputer</strong> <span style="color:var(--muted)">(2016–2019)</span>
+          <p class="muted">Materi: Jaringan, Pemrograman dasar, Sistem operasi</p>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="card" aria-labelledby="projTitle">
+        <div class="section-title"><h3 id="projTitle">Project Portofolio</h3></div>
+
+        <div class="projects">
+          <!-- PROJECT 1 -->
+          <div class="proj">
+            <div class="thumb">
+              <!-- EDIT: ganti src dengan screenshot proyek -->
+              <img src="https://via.placeholder.com/220x140?text=Project+1" alt="Preview Project 1" style="width:100%;height:100%;object-fit:cover" />
+            </div>
+            <div>
+              <h4><!-- EDIT: Judul proyek -->Sistem Informasi Akademik</h4>
+              <p><!-- EDIT: deskripsi singkat -->Aplikasi manajemen data mahasiswa, pendaftaran, dan laporan. Fullstack: React + Node.js + MySQL.</p>
+              <div style="margin-top:8px"><a href="#" target="_blank" rel="noopener">Lihat di GitHub →</a></div>
+            </div>
+          </div>
+
+          <!-- PROJECT 2 -->
+          <div class="proj">
+            <div class="thumb">
+              <img src="https://via.placeholder.com/220x140?text=Project+2" alt="Preview Project 2" style="width:100%;height:100%;object-fit:cover" />
+            </div>
+            <div>
+              <h4><!-- EDIT: Judul proyek 2 -->PWA To-Do & Notes</h4>
+              <p><!-- EDIT: deskripsi singkat 2 -->Progressive Web App untuk catatan & tugas, offline-ready dan push-notification menggunakan Firebase.</p>
+              <div style="margin-top:8px"><a href="#" target="_blank" rel="noopener">Lihat di GitHub →</a></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="card" aria-labelledby="skillsTitle">
+        <div class="section-title"><h3 id="skillsTitle">Keahlian</h3></div>
+        <div class="skills">
+          <div class="skill"><div class="label">HTML</div><div class="bar-wrap"><div class="bar" data-skill="95"></div></div></div>
+          <div class="skill"><div class="label">CSS</div><div class="bar-wrap"><div class="bar" data-skill="90"></div></div></div>
+          <div class="skill"><div class="label">JavaScript</div><div class="bar-wrap"><div class="bar" data-skill="88"></div></div></div>
+          <div class="skill"><div class="label">React</div><div class="bar-wrap"><div class="bar" data-skill="82"></div></div></div>
+          <div class="skill"><div class="label">Python</div><div class="bar-wrap"><div class="bar" data-skill="75"></div></div></div>
+          <div class="skill"><div class="label">UI/UX</div><div class="bar-wrap"><div class="bar" data-skill="68"></div></div></div>
+        </div>
+      </section>
+
+      <!-- Certificates -->
+      <section id="certs" class="card" aria-labelledby="certTitle">
+        <div class="section-title"><h3 id="certTitle">Sertifikat</h3></div>
+        <div class="cert-list">
+          <!-- CERT 1 -->
+          <div class="cert">
+            <!-- EDIT: ganti src ke thumbnail sertifikat nyata -->
+            <img src="https://via.placeholder.com/400x240?text=Sertifikat+1" alt="Sertifikat 1" />
+            <div class="meta"><strong>Front-End Developer</strong><div class="muted">— Dicoding (2023)</div></div>
+          </div>
+
+          <!-- CERT 2 -->
+          <div class="cert">
+            <img src="https://via.placeholder.com/400x240?text=Sertifikat+2" alt="Sertifikat 2" />
+            <div class="meta"><strong>React JS</strong><div class="muted">— Bootcamp (2024)</div></div>
+          </div>
+
+          <!-- CERT 3 -->
+          <div class="cert">
+            <img src="https://via.placeholder.com/400x240?text=Sertifikat+3" alt="Sertifikat 3" />
+            <div class="meta"><strong>Cloud Basics</strong><div class="muted">— Provider Cloud (2024)</div></div>
+          </div>
+        </div>
+      </section>
+
     </div>
 
-    <footer>
-      <div class="muted">© <!-- EDIT HERE: Tahun dan nama -->2025 — Nama Lengkap Kamu. Semua hak cipta.</div>
-    </footer>
+    <!-- right column (sidebar) -->
+    <aside class="side-col">
+      <!-- CONTACT -->
+      <div class="card contact" id="contact" aria-labelledby="contactTitle">
+        <div class="section-title"><h3 id="contactTitle">Kontak Saya</h3></div>
+
+        <div class="row">
+          <div class="icon"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <div style="font-weight:700"><!-- EDIT: No HP -->+62 812-3456-789</div>
+            <div class="muted" style="font-size:13px">Telepon / WhatsApp</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+          <div>
+            <div style="font-weight:700"><a href="mailto:email@domain.com" style="color:inherit;text-decoration:none"><!-- EDIT: Email -->email@domain.com</a></div>
+            <div class="muted" style="font-size:13px">Email</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="icon"><i class="fa-brands fa-github"></i></div>
+          <div>
+            <div style="font-weight:700"><a href="https://github.com/username" target="_blank" rel="noopener" style="color:inherit;text-decoration:none"><!-- EDIT: GitHub -->github.com/username</a></div>
+            <div class="muted" style="font-size:13px">Repos & kode</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="icon"><i class="fa-brands fa-linkedin"></i></div>
+          <div>
+            <div style="font-weight:700"><a href="https://linkedin.com/in/username" target="_blank" rel="noopener" style="color:inherit;text-decoration:none"><!-- EDIT: LinkedIn -->linkedin.com/in/username</a></div>
+            <div class="muted" style="font-size:13px">Profil profesional</div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px">
+          <a class="cta" href="#projects">Lihat Proyek</a>
+        </div>
+      </div>
+
+      <!-- small CTA card -->
+      <div class="card" style="text-align:center">
+        <h4 style="margin:6px 0 4px 0">Download CV</h4>
+        <p class="muted" style="margin:0 0 10px 0">Klik untuk mengunduh CV (upload file dan ganti link).</p>
+        <!-- EDIT: ganti href ke file CV -->
+        <a class="cta" href="#" style="display:inline-block">Download CV</a>
+      </div>
+
+      <!-- quick tags or interests -->
+      <div class="card">
+        <div class="section-title"><h3>Minat</h3></div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="padding:8px 10px;border-radius:999px;background:rgba(255,255,255,0.02);color:var(--muted)">Web Dev</span>
+          <span style="padding:8px 10px;border-radius:999px;background:rgba(255,255,255,0.02);color:var(--muted)">Cloud</span>
+          <span style="padding:8px 10px;border-radius:999px;background:rgba(255,255,255,0.02);color:var(--muted)">Open Source</span>
+          <span style="padding:8px 10px;border-radius:999px;background:rgba(255,255,255,0.02);color:var(--muted)">UI/UX</span>
+        </div>
+      </div>
+
+    </aside>
+
+    <footer>© <!-- EDIT: tahun & nama -->2025 — Nama Kamu. Dibuat dengan ✨ di bawah langit.</footer>
   </div>
 
   <script>
-    // Smooth scroll for internal links
+    // Smooth internal scrolling with offset for visual comfort
     (function(){
       const links = document.querySelectorAll('a[href^="#"]');
       for(const a of links){
         a.addEventListener('click', function(e){
-          e.preventDefault();
-          const id = this.getAttribute('href');
-          if(!id || id === '#') return;
-          const el = document.querySelector(id);
+          const href = this.getAttribute('href');
+          if(!href || href === '#') return;
+          const el = document.querySelector(href);
           if(!el) return;
-          window.scrollTo({
-            top: el.getBoundingClientRect().top + window.pageYOffset - 80,
-            behavior: 'smooth'
-          });
+          e.preventDefault();
+          const y = el.getBoundingClientRect().top + window.pageYOffset - 24;
+          window.scrollTo({ top: y, behavior: 'smooth' });
         });
       }
     })();
 
-    // Animate skill bars when in view
+    // Fade-in sections when entering viewport + animate skill bars once
     (function(){
-      const bars = document.querySelectorAll('.bar');
-      function animateBars(){
-        bars.forEach(b=>{
-          const val = parseInt(b.getAttribute('data-skill') || 0, 10);
-          b.style.width = val + '%';
-        });
-      }
-
-      // Intersection Observer to animate once when visible
-      if('IntersectionObserver' in window){
-        const obs = new IntersectionObserver(entries=>{
-          entries.forEach(entry=>{
-            if(entry.isIntersecting){
-              animateBars();
-              obs.disconnect();
+      const sections = document.querySelectorAll('section.card');
+      const options = { threshold: 0.18 };
+      const onIntersect = (entries, obs) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+            entry.target.style.transform = 'translateY(0)';
+            entry.target.style.opacity = 1;
+            // animate bars if skills section
+            if(entry.target.id === 'skills'){
+              document.querySelectorAll('.bar').forEach(b=>{
+                const val = b.dataset.skill || 0;
+                b.style.width = val + '%';
+              });
             }
-          });
-        }, {threshold:0.25});
-        const target = document.querySelector('#skills');
-        if(target) obs.observe(target);
-        else animateBars();
-      } else {
-        // fallback
-        animateBars();
-      }
+            obs.unobserve(entry.target);
+          }
+        });
+      };
+      const obs = new IntersectionObserver(onIntersect, options);
+      sections.forEach(s => obs.observe(s));
     })();
 
-    // Tiny accessibility: focus outlines for keyboard users only
+    // Tiny parallax for nebula on mouse move (subtle)
+    (function(){
+      const nebula = document.querySelector('.nebula');
+      if(!nebula) return;
+      window.addEventListener('mousemove', e => {
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        const nx = (e.clientX / w) * 2 - 1;
+        const ny = (e.clientY / h) * 2 - 1;
+        nebula.style.transform = `translate(${nx * 8}px, ${ny * 6}px)`;
+      });
+    })();
+
+    // Accessibility: add focus outlines for keyboard users only
     (function(){
       function handleFirstTab(e){
         if(e.key === 'Tab'){
@@ -945,6 +487,19 @@
         }
       }
       window.addEventListener('keydown', handleFirstTab);
+    })();
+
+    // Small helper: replace avatar initials from name
+    (function(){
+      const avatar = document.querySelector('.avatar');
+      try{
+        const name = document.querySelector('.brand h1').textContent.trim();
+        if(name){
+          const parts = name.split(' ').filter(Boolean);
+          const initials = (parts[0][0] || '') + (parts[1] ? parts[1][0] : '');
+          avatar.textContent = initials.toUpperCase();
+        }
+      }catch(e){}
     })();
   </script>
 </body>
