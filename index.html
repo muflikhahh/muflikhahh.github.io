@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Sasya Keren</title>
+    <title>Portofolio Sasya Keren & Dinamis</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* === CSS UTAMA (Tidak Berubah dari sebelumnya) === */
+        /* === CSS UTAMA === */
         :root {
             --primary-color: #e60000; /* Merah menyala */
             --secondary-color: #1a1a1a; /* Hitam gelap */
             --text-color: #ffffff;
-            --font-family: 'Poppins', sans-serif; /* Font yang lebih modern */
+            --font-family: 'Poppins', sans-serif;
         }
-
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
         * {
             margin: 0;
@@ -46,9 +47,9 @@
         .navbar a {
             color: var(--text-color);
             text-decoration: none;
-            padding: 10px 20px;
-            margin: 0 10px;
-            font-size: 1.1em;
+            padding: 10px 15px;
+            margin: 0 5px;
+            font-size: 1em;
             text-transform: uppercase;
             letter-spacing: 1px;
             position: relative;
@@ -82,7 +83,6 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            transition: background-color 0.5s ease;
             position: relative;
             overflow: hidden;
         }
@@ -101,7 +101,7 @@
             letter-spacing: 2px;
         }
 
-        /* === ANIMASI TRANFORMASI === */
+        /* === ANIMASI TRANFORMASI (DEFAULT SLIDE-UP) === */
         .anim-hidden {
             opacity: 0;
             transform: translateY(30px);
@@ -112,6 +112,7 @@
             transform: translateY(0);
         }
         
+        /* Animasi Kiri-Kanan untuk Teks Hero */
         .hero-text {
             opacity: 0;
             transform: translateX(-50px);
@@ -121,4 +122,11 @@
         }
         .hero-text.anim-show {
             opacity: 1;
-            transform: translateX(
+            transform: translateX(0);
+        }
+
+
+        /* === HOME / FOTO PROFIL & ANIMASI KHUSUS === */
+        #home {
+            /* Ganti URL_BACKGROUND_KEREN jika Anda punya */
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 50%, rgba(230, 0, 0, 0.1) 100%), url
