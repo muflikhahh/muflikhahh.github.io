@@ -3,130 +3,480 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Sasya Keren & Dinamis</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Portofolio - [Muflikhah] - Single File</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
     
     <style>
-        /* === CSS UTAMA === */
+        /* Variabel CSS untuk kemudahan perubahan tema */
         :root {
-            --primary-color: #e60000; /* Merah menyala */
-            --secondary-color: #1a1a1a; /* Hitam gelap */
-            --text-color: #ffffff;
-            --font-family: 'Poppins', sans-serif;
+            --color-primary: #00adb5; /* Biru/Cyan cerah */
+            --color-secondary: #008c99;
+            --color-dark: #222831; /* Biru gelap utama */
+            --color-darker: #1a1e24; /* Background lebih gelap */
+            --color-light: #eeeeee; /* Warna teks terang */
+            --color-gray: #393e46; /* Abu-abu untuk latar belakang kartu/elemen */
+            --font-family: 'Montserrat', sans-serif;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            scroll-behavior: smooth;
         }
 
         body {
             font-family: var(--font-family);
-            background-color: var(--secondary-color);
-            color: var(--text-color);
+            background-color: var(--color-darker);
+            color: var(--color-light);
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
-        /* Navigasi */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            padding: 15px 50px;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .navbar a {
-            color: var(--text-color);
-            text-decoration: none;
-            padding: 10px 15px;
-            margin: 0 5px;
-            font-size: 1em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-            transition: color 0.3s ease;
+        h1, h2, h3 {
+            font-weight: 800; /* Font tebal */
+            color: var(--color-light);
         }
 
-        .navbar a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            display: block;
-            margin-top: 5px;
-            right: 0;
-            background: var(--primary-color);
-            transition: width 0.3s ease;
-        }
-
-        .navbar a:hover::after {
-            width: 100%;
-            left: 0;
-            background: var(--primary-color);
-        }
-
-        /* Bagian Konten (Section) */
-        section {
-            padding: 100px 50px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        h2 {
+            font-size: 2.5em;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        section:nth-child(even) {
-            background-color: #222222;
-        }
-
-        .section-title {
-            font-size: 3em;
-            margin-bottom: 40px;
-            color: var(--primary-color);
-            border-bottom: 3px solid var(--text-color);
-            padding-bottom: 10px;
+            margin-bottom: 2em;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
-        /* === ANIMASI TRANFORMASI (DEFAULT SLIDE-UP) === */
-        .anim-hidden {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1s cubic-bezier(0.17, 0.67, 0.83, 0.67), transform 1s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+        p {
+            margin-bottom: 1em;
         }
-        .anim-show {
-            opacity: 1;
-            transform: translateY(0);
+
+        /* Header & Navigasi */
+        header {
+            background-color: var(--color-dark);
+            padding: 1em 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: 800;
+            color: var(--color-primary);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li a {
+            color: var(--color-light);
+            text-decoration: none;
+            margin-left: 20px;
+            padding: 0.5em 1em;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--color-primary);
+            border-bottom: 2px solid var(--color-primary);
+        }
+
+        /* Tombol */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-right: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn.primary {
+            background-color: var(--color-primary);
+            color: var(--color-dark);
+            border: 2px solid var(--color-primary);
+        }
+
+        .btn.secondary {
+            background-color: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--color-dark);
+            /* Ganti dengan gambar latar belakang gelap yang keren seperti di desain */
+            /* Anda bisa menggunakan Base64 image atau placeholder gambar (jika ingin file tunggal) */
+            /* Contoh: background-image: url('data:image/jpeg;base64,...'); */
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)); /* Placeholder jika tidak ada gambar */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .now-live {
+            color: var(--color-primary);
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            color: var(--color-primary);
+        }
+
+        /* Section Umum */
+        .section {
+            padding: 80px 0;
+            border-top: 1px solid var(--color-gray);
+        }
+
+        /* About Me Section */
+        .about-grid {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .bio, .vision {
+            flex: 1;
+            background-color: var(--color-dark);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            border-left: 5px solid var(--color-primary);
+        }
+
+        .education ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .education li {
+            background-color: var(--color-gray);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .skill-card {
+            background-color: var(--color-gray);
+            color: var(--color-light);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s;
+            border: 1px solid var(--color-primary);
+        }
+
+        .skill-card:hover {
+            background-color: var(--color-primary);
+            color: var(--color-darker);
+            transform: scale(1.05);
+        }
+
+        /* Projects Section */
+        .project-item {
+            background-color: var(--color-dark);
+            padding: 20px;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            border-right: 5px solid var(--color-secondary);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-card {
+            background-color: var(--color-dark);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            border: 1px solid var(--color-gray);
+            transition: border-color 0.3s;
+        }
+
+        .portfolio-card:hover {
+            border-color: var(--color-primary);
+        }
+
+        /* Sertifikat Section */
+        .certificate-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .certificate-grid img {
+            width: 30%; /* Sesuaikan ukuran */
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 3px solid var(--color-primary);
+            box-shadow: 0 0 15px rgba(0, 173, 181, 0.5);
         }
         
-        /* Animasi Kiri-Kanan untuk Teks Hero */
-        .hero-text {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
-            max-width: 600px;
-            text-align: left;
-        }
-        .hero-text.anim-show {
-            opacity: 1;
-            transform: translateX(0);
+        /* Gambar sertifikat placeholder */
+        .certificate-grid .cert-placeholder {
+            width: 30%;
+            height: 200px;
+            background-color: var(--color-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-light);
+            border-radius: 10px;
+            border: 3px dashed var(--color-primary);
         }
 
 
-        /* === HOME / FOTO PROFIL & ANIMASI KHUSUS === */
-        #home {
-            /* Ganti URL_BACKGROUND_KEREN jika Anda punya */
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 50%, rgba(230, 0, 0, 0.1) 100%), url
+        /* Contact Section */
+        .contact-info {
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-dark);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9em;
+            color: var(--color-gray);
+            border-top: 1px solid var(--color-gray);
+        }
+
+        /* Media Queries untuk responsivitas (mobile) */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+            
+            .about-grid {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                /* Anda bisa menambahkan menu hamburger di sini, untuk saat ini disembunyikan */
+                display: none; 
+            }
+            
+            .certificate-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .certificate-grid img, .certificate-grid .cert-placeholder {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <div class="logo">PORTFOLIO</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Tentang Saya</a></li>
+                <li><a href="#skills">Keahlian</a></li>
+                <li><a href="#projects">Project</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="now-live">NOW LIVE</p>
+                <h1>MEMPERKENALKAN <br><span>PORTOFOLIO KREASI SAYA</span></h1>
+                <p>Jelajahi visi, proyek, dan perjalanan profesional saya yang membentuk siapa saya hari ini.</p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn primary">Description</a>
+                    <a href="#projects" class="btn secondary">Next for detail</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section about-me">
+        <div class="container">
+            <h2>👤 Tentang Saya & Visi/Misi</h2>
+            <div class="about-grid">
+                <div class="bio">
+                    <h3>Tentang Saya</h3>
+                    <p>**[Isi dengan deskripsi singkat diri Anda, e.g., Saya adalah seorang UI/UX Designer dan Front-End Developer yang berfokus pada desain intuitif dan fungsional.]**</p>
+                </div>
+                <div class="vision">
+                    <h3>Visi & Misi</h3>
+                    <p>**Visi:** Menjadi profesional yang menciptakan solusi digital yang elegan, efisien, dan berdampak positif.</p>
+                    <p>**Misi:** Menguasai teknologi terkini, berkolaborasi dalam proyek inovatif, dan terus belajar.</p>
+                </div>
+            </div>
+            <div class="education">
+                <h3>🎓 Latar Belakang Pendidikan</h3>
+                <ul>
+                    <li>**[Nama Institusi A, Tahun Akhir]** - [Gelar/Jurusan, e.g., S.Kom. Teknik Informatika]</li>
+                    <li>**[Nama Institusi B, Tahun Akhir]** - [Bidang/Kursus, e.g., Bootcamp UI/UX Design]</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills" class="section skills-section">
+        <div class="container">
+            <h2>✨ Keahlian</h2>
+            <div class="skills-grid">
+                <div class="skill-card">HTML5 & CSS3</div>
+                <div class="skill-card">JavaScript (DOM)</div>
+                <div class="skill-card">Figma (UI/UX)</div>
+                <div class="skill-card">Responsive Design</div>
+                <div class="skill-card">Git & GitHub</div>
+                <div class="skill-card">Prototyping</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section projects-section">
+        <div class="container">
+            <h2>🛠️ Pengalaman Proyek & Portofolio</h2>
+            
+            <div class="project-item">
+                <h3>Pengalaman Proyek</h3>
+                <p>Melibatkan diri dalam proyek **Aplikasi Manajemen Keuangan** sebagai **Lead UI Designer**. Tanggung jawab utama: **Mendesain alur pengguna dan *high-fidelity mockup* untuk dashboard utama klien.**</p>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <h3>Project Portofolio 1: Website E-Commerce Futuristik</h3>
+                    <p>Membangun antarmuka toko online dengan tema gelap, responsif penuh, dan menerapkan efek paralaks menggunakan HTML/CSS/JS murni.</p>
+                    <a href="#" target="_blank" class="btn secondary">Lihat Project</a>
+                </div>
+                <div class="portfolio-card">
+                    <h3>Project Portofolio 2: Aplikasi To-Do List Sederhana</h3>
+                    <p>Aplikasi web yang berfungsi penuh untuk mengelola tugas harian, menggunakan JavaScript murni untuk manipulasi DOM dan Local Storage.</p>
+                    <a href="#" target="_blank" class="btn secondary">Lihat Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificates" class="section certificate-section">
+        <div class="container">
+            <h2>📜 Sertifikat</h2>
+            <div class="certificate-grid">
+                <div class="cert-placeholder">Sertifikat 1 (Ganti dengan Foto)</div>
+                <div class="cert-placeholder">Sertifikat 2 (Ganti dengan Foto)</div>
+                <div class="cert-placeholder">Sertifikat 3 (Ganti dengan Foto)</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2>📬 Contact</h2>
+            <p>Tertarik berkolaborasi? Hubungi saya:</p>
+            <div class="contact-info">
+                <p>Email: **namaanda@email.com**</p>
+                <p>LinkedIn: **linkedin.com/in/nama-anda**</p>
+                <p>GitHub: **github.com/username-anda**</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 [Nama Anda]. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ambil semua link navigasi
+            const navLinks = document.querySelectorAll('nav ul li a');
+            const headerHeight = document.querySelector('header').offsetHeight;
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    
+                    // Hanya proses link yang mengarah ke ID di halaman
+                    if (targetId.startsWith('#') && targetId.length > 1) {
+                        e.preventDefault(); 
+
+                        const targetElement = document.querySelector(targetId);
+                        
+                        if (targetElement) {
+                            // Gulir halus (Smooth Scroll)
+                            window.scrollTo({
+                                // OffsetTop: Posisi elemen dari atas dokumen. Dikurangi tinggi header untuk sticky nav.
+                                top: targetElement.offsetTop - headerHeight, 
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
